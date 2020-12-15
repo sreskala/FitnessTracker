@@ -55,11 +55,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="MealServices\MealPlanService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FitnessTracker.Data\FitnessTracker.Data.csproj">
+      <Project>{658aed1d-862e-460f-b0ab-14a18fa48480}</Project>
+      <Name>FitnessTracker.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FitnessTracker.Models\FitnessTracker.Models.csproj">
+      <Project>{f5baf13f-2349-41e2-8ce6-f48fee17d0a3}</Project>
+      <Name>FitnessTracker.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

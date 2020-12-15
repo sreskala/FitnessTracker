@@ -16,5 +16,24 @@ namespace FitnessTracker.Controllers
             var model = new MealPlanListItem[0];
             return View(model);
         }
+
+        //GET: MealPlan/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        //POST: MealPlan/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(MealPlanCreate model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+
+            return View(model);
+        }
     }
 }

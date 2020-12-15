@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 
 namespace FitnessTracker.Models.MealModels.MealPlan
 {
-    public class MealPlanListItem
+    public class MealPlanCreate
     {
-        public int MealPlanId { get; set; }
+        [Required]
+        [MinLength(5, ErrorMessage ="Please enter at least 5 characters")]
+        [MaxLength(100,ErrorMessage ="Too many characters.")]
         public string Title { get; set; }
-        //public int Week { get; set; }
-
-        [Display(Name ="Date Created")]
-        public DateTimeOffset DateCreatedUtc { get; set; }
+        public int Length { get; set; }
     }
 }
