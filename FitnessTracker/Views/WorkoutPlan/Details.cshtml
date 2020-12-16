@@ -1,0 +1,50 @@
+﻿@model FitnessTracker.Models.WorkoutModels.WorkoutPlan.WorkoutPlanDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>WorkoutPlanDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkoutPlanId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkoutPlanId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateModifiedUtc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.WorkoutPlanId}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

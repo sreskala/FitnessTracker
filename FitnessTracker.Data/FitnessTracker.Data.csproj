@@ -66,8 +66,19 @@
     <Compile Include="Migrations\202012152007133_datachange1.Designer.cs">
       <DependentUpon>202012152007133_datachange1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012161836459_mig2.cs" />
+    <Compile Include="Migrations\202012161836459_mig2.Designer.cs">
+      <DependentUpon>202012161836459_mig2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012161901054_mig3.cs" />
+    <Compile Include="Migrations\202012161901054_mig3.Designer.cs">
+      <DependentUpon>202012161901054_mig3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkoutData\Exercise.cs" />
+    <Compile Include="WorkoutData\Workout.cs" />
+    <Compile Include="WorkoutData\WorkoutPlan.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -79,6 +90,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012152007133_datachange1.resx">
       <DependentUpon>202012152007133_datachange1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012161836459_mig2.resx">
+      <DependentUpon>202012161836459_mig2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012161901054_mig3.resx">
+      <DependentUpon>202012161901054_mig3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
