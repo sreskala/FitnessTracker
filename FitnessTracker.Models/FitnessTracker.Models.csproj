@@ -59,6 +59,10 @@
     <Compile Include="MealModels\MealPlan\MealPlanEdit.cs" />
     <Compile Include="MealModels\MealPlan\MealPlanListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkoutModels\WorkoutPlan\WorkoutPlanCreate.cs" />
+    <Compile Include="WorkoutModels\WorkoutPlan\WorkoutPlanDetail.cs" />
+    <Compile Include="WorkoutModels\WorkoutPlan\WorkoutPlanListItem.cs" />
+    <Compile Include="WorkoutModels\WorkoutPlan\WorkoutPlanUpdate.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

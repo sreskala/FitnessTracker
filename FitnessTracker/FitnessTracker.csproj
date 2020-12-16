@@ -171,6 +171,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MealPlanController.cs" />
+    <Compile Include="Controllers\WorkoutPlanController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -240,6 +241,11 @@
     <Content Include="Views\MealPlan\Details.cshtml" />
     <Content Include="Views\MealPlan\Edit.cshtml" />
     <Content Include="Views\MealPlan\Delete.cshtml" />
+    <Content Include="Views\WorkoutPlan\Index.cshtml" />
+    <Content Include="Views\WorkoutPlan\Create.cshtml" />
+    <Content Include="Views\WorkoutPlan\Details.cshtml" />
+    <Content Include="Views\WorkoutPlan\Edit.cshtml" />
+    <Content Include="Views\WorkoutPlan\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
