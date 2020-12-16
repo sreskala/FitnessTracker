@@ -54,6 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GoalModels\GoalCreate.cs" />
+    <Compile Include="GoalModels\GoalDetail.cs" />
+    <Compile Include="GoalModels\GoalEdit.cs" />
+    <Compile Include="GoalModels\GoalListItem.cs" />
     <Compile Include="MealModels\MealPlan\MealPlanCreate.cs" />
     <Compile Include="MealModels\MealPlan\MealPlanDetail.cs" />
     <Compile Include="MealModels\MealPlan\MealPlanEdit.cs" />

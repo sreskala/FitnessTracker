@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Goals\Goal.cs" />
     <Compile Include="MealData\FoodItem.cs" />
     <Compile Include="MealData\Meal.cs" />
     <Compile Include="MealData\MealPlan.cs" />
@@ -73,6 +74,10 @@
     <Compile Include="Migrations\202012161901054_mig3.cs" />
     <Compile Include="Migrations\202012161901054_mig3.Designer.cs">
       <DependentUpon>202012161901054_mig3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012162025503_addedGoals.cs" />
+    <Compile Include="Migrations\202012162025503_addedGoals.Designer.cs">
+      <DependentUpon>202012162025503_addedGoals.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012161901054_mig3.resx">
       <DependentUpon>202012161901054_mig3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012162025503_addedGoals.resx">
+      <DependentUpon>202012162025503_addedGoals.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
