@@ -1,0 +1,58 @@
+﻿@model FitnessTracker.Models.MealModels.MealPlan.MealPlanDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MealPlanDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MealPlanId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MealPlanId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateModifiedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Length)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Length)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MealPlanId}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

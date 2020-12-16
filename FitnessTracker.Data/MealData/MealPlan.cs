@@ -16,7 +16,7 @@ namespace FitnessTracker.Data
         [MaxLength(100, ErrorMessage = "Name of meal plan cannot exceed 100 characters.")]
         public string Title { get; set; }
 
-        public int Week { get; set; }
+        //public int Week { get; set; }
 
         [Display(Name = "Date Created")]
         public DateTimeOffset DateCreatedUtc { get; set; }

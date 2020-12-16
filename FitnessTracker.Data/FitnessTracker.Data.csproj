@@ -58,11 +58,28 @@
     <Compile Include="MealData\Meal.cs" />
     <Compile Include="MealData\MealPlan.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202012151855543_InitialCreate.cs" />
+    <Compile Include="Migrations\202012151855543_InitialCreate.Designer.cs">
+      <DependentUpon>202012151855543_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012152007133_datachange1.cs" />
+    <Compile Include="Migrations\202012152007133_datachange1.Designer.cs">
+      <DependentUpon>202012152007133_datachange1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202012151855543_InitialCreate.resx">
+      <DependentUpon>202012151855543_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012152007133_datachange1.resx">
+      <DependentUpon>202012152007133_datachange1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
