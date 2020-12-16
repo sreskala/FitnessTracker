@@ -58,5 +58,60 @@ namespace FitnessTracker.Services.MealServices
                 return query.ToArray();
             }
         }
+
+        //GET MEALPLAN BY ID
+        public MealPlanDetail GetMealPlanById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .MealPlans
+                    .Single(m => m.MealPlanId == id && m.OwnerId == _userId);
+
+                return
+                    new MealPlanDetail
+                    {
+                        MealPlanId = entity.MealPlanId,
+                        Title = entity.Title,
+                        DateCreatedUtc = entity.DateCreatedUtc,
+                        DateModifiedUtc = entity.DateModifiedUtc,
+                        Length = entity.Length
+                    };
+            }
+        }
+
+        //EDIT MEALPLAN BY ID
+        public bool UpdateMealPlan(MealPlanEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                    .MealPlans
+                    .Single(m => m.MealPlanId == model.MealPlanId && m.OwnerId == _userId);
+
+                entity.Title = model.Title;
+                entity.Length = model.Length;
+                entity.DateModifiedUtc = DateTimeOffset.Now;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        //DELETE MEALPLAN BY ID
+        public bool DeleteMealPlan(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .MealPlans
+                    .Single(m => m.MealPlanId == id && m.OwnerId == _userId);
+
+                ctx.MealPlans.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
