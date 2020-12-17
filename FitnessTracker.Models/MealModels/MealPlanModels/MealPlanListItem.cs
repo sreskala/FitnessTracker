@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FitnessTracker.Models.MealModels.JoiningTableModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,5 +16,6 @@ namespace FitnessTracker.Models.MealModels.MealPlan
 
         [Display(Name ="Date Created")]
         public DateTimeOffset DateCreatedUtc { get; set; }
+        
     }
 }

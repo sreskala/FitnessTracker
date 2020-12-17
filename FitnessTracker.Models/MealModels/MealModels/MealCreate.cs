@@ -6,20 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FitnessTracker.Data
-{
-    public class Meal
-    {
-        [Key]
-        public int MealId { get; set; }
-        [Required]
-        public string Title { get; set; }
-        public Guid OwnerId { get; set; }
 
-        //Reference to food items
+namespace FitnessTracker.Models.MealModels.Meal
+{
+    public class MealCreate
+    {
         [Required]
-        [ForeignKey(nameof(MealPlan))]
+        [MaxLength(100, ErrorMessage = "Too many characters.")]
+        public string Title { get; set; }
+
+        [Required]
         public int MealPlanId { get; set; }
-        public virtual MealPlan MealPlan { get; set; }
     }
 }

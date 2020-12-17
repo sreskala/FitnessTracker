@@ -49,10 +49,19 @@
         <dd>
             @Html.DisplayFor(model => model.Length)
         </dd>
-
+        <dt>
+            @Html.DisplayNameFor(model => model.Meals)
+        </dt>
+        @foreach(var meal in Model.Meals)
+        {
+             <dd>
+                 @Html.DisplayFor(model => meal.Meal.Title)
+             </dd>
+        }
+        
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MealPlanId}) |
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

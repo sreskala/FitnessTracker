@@ -58,10 +58,14 @@
     <Compile Include="GoalModels\GoalDetail.cs" />
     <Compile Include="GoalModels\GoalEdit.cs" />
     <Compile Include="GoalModels\GoalListItem.cs" />
-    <Compile Include="MealModels\MealPlan\MealPlanCreate.cs" />
-    <Compile Include="MealModels\MealPlan\MealPlanDetail.cs" />
-    <Compile Include="MealModels\MealPlan\MealPlanEdit.cs" />
-    <Compile Include="MealModels\MealPlan\MealPlanListItem.cs" />
+    <Compile Include="MealModels\JoiningTableModels\MealForMealPlanListItem.cs" />
+    <Compile Include="MealModels\MealPlanModels\MealPlanCreate.cs" />
+    <Compile Include="MealModels\MealPlanModels\MealPlanDetail.cs" />
+    <Compile Include="MealModels\MealPlanModels\MealPlanEdit.cs" />
+    <Compile Include="MealModels\MealPlanModels\MealPlanListItem.cs" />
+    <Compile Include="MealModels\MealModels\MealCreate.cs" />
+    <Compile Include="MealModels\MealModels\MealDetail.cs" />
+    <Compile Include="MealModels\MealModels\MealListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorkoutModels\WorkoutPlan\WorkoutPlanCreate.cs" />
     <Compile Include="WorkoutModels\WorkoutPlan\WorkoutPlanDetail.cs" />
@@ -71,6 +75,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FitnessTracker.Data\FitnessTracker.Data.csproj">
+      <Project>{658aed1d-862e-460f-b0ab-14a18fa48480}</Project>
+      <Name>FitnessTracker.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
