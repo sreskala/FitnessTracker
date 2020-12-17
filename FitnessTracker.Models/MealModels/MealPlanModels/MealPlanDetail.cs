@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FitnessTracker.Data.MealData;
+using FitnessTracker.Models.MealModels.JoiningTableModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -18,5 +20,7 @@ namespace FitnessTracker.Models.MealModels.MealPlan
         [Display(Name = "Date Modified")]
         public DateTimeOffset? DateModifiedUtc { get; set; }
         public int? Length { get; set; }
+
+        public List<MealForMealPlanListItem> Meals { get; set; }
     }
 }

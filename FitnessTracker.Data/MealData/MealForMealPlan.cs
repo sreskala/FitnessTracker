@@ -6,20 +6,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FitnessTracker.Data
+namespace FitnessTracker.Data.MealData
 {
-    public class Meal
+    //joining table
+    public class MealForMealPlan
     {
         [Key]
-        public int MealId { get; set; }
-        [Required]
-        public string Title { get; set; }
-        public Guid OwnerId { get; set; }
+        public int Id { get; set; }
 
-        //Reference to food items
         [Required]
-        [ForeignKey(nameof(MealPlan))]
         public int MealPlanId { get; set; }
+
+        [ForeignKey(nameof(MealPlanId))]
         public virtual MealPlan MealPlan { get; set; }
+
+        [Required]
+        public int MealId { get; set; }
+
+        [ForeignKey(nameof(MealId))]
+        public virtual Meal Meal { get; set; }
     }
 }

@@ -1,4 +1,7 @@
 ﻿using FitnessTracker.Data;
+using FitnessTracker.Data.MealData;
+using FitnessTracker.Models.MealModels.JoiningTableModels;
+using FitnessTracker.Models.MealModels.Meal;
 using FitnessTracker.Models.MealModels.MealPlan;
 using System;
 using System.Collections.Generic;
@@ -76,7 +79,23 @@ namespace FitnessTracker.Services.MealServices
                         Title = entity.Title,
                         DateCreatedUtc = entity.DateCreatedUtc,
                         DateModifiedUtc = entity.DateModifiedUtc,
-                        Length = entity.Length
+                        Length = entity.Length,
+                        Meals =
+                                ctx
+                                .MealForMealPlans
+                                .Where(mp => mp.MealPlanId == entity.MealPlanId)
+                                .Select(mp =>
+                                new MealForMealPlanListItem
+                                {
+                                    Id = mp.Id,
+                                    MealPlanId = mp.MealPlanId,
+                                    MealId = mp.MealId,
+                                    Meal = new MealListItem
+                                    {
+                                        MealId = mp.MealId,
+                                        Title = mp.Meal.Title
+                                    }
+                                }).ToList()
                     };
             }
         }

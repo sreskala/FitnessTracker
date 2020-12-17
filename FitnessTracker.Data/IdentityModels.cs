@@ -4,6 +4,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using FitnessTracker.Data.Goals;
+using FitnessTracker.Data.MealData;
 using FitnessTracker.Data.WorkoutData;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -37,6 +38,8 @@ namespace FitnessTracker.Data
         public DbSet<MealPlan> MealPlans { get; set; }
         public DbSet<WorkoutPlan> WorkoutPlans { get; set; }
         public DbSet<Goal> Goals { get; set; }
+        public DbSet<Meal> Meals { get; set; }
+        public DbSet<MealForMealPlan> MealForMealPlans { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -48,6 +51,9 @@ namespace FitnessTracker.Data
                 .Configurations
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
+
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
         }
     }
 
