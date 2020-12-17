@@ -8,21 +8,19 @@ using System.Threading.Tasks;
 
 namespace FitnessTracker.Data.WorkoutData
 {
-    public class Workout
+    public class WorkoutForWorkoutPlan
     {
         [Key]
-        public int WorkoutId { get; set; }
-
-        [Required]
-        public string Title { get; set; }
-
-        public Guid OwnerId { get; set; }
-
-        //reference other tables here
+        public int Id { get; set; }
 
         [Required]
         [ForeignKey(nameof(WorkoutPlan))]
         public int WorkoutPlanId { get; set; }
         public virtual WorkoutPlan WorkoutPlan { get; set; }
+        
+        [Required]
+        [ForeignKey(nameof(Workout))]
+        public int WorkoutId { get; set; }
+        public virtual Workout Workout { get; set; }
     }
 }

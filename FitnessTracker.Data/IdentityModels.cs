@@ -39,7 +39,9 @@ namespace FitnessTracker.Data
         public DbSet<WorkoutPlan> WorkoutPlans { get; set; }
         public DbSet<Goal> Goals { get; set; }
         public DbSet<Meal> Meals { get; set; }
+        public DbSet<Workout> Workouts { get; set; }
         public DbSet<MealForMealPlan> MealForMealPlans { get; set; }
+        public DbSet<WorkoutForWorkoutPlan> WorkoutForWorkoutPlans { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
