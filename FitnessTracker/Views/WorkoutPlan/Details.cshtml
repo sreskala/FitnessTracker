@@ -41,6 +41,15 @@
         <dd>
             @Html.DisplayFor(model => model.DateModifiedUtc)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Workouts)
+        </dt>
+        @foreach(var workout in Model.Workouts)
+        {
+            <dd>
+                @Html.DisplayFor(model => workout.Workout.Title)
+            </dd>
+        }
 
     </dl>
 </div>
