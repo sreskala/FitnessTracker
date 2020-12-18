@@ -60,6 +60,7 @@
     <Compile Include="GoalModels\GoalListItem.cs" />
     <Compile Include="MealModels\JoiningTableModels\MealForMealPlanListItem.cs" />
     <Compile Include="MealModels\JoiningTableModels\WorkoutForWorkoutPlanListItem.cs" />
+    <Compile Include="MealModels\MealModels\MealUpdate.cs" />
     <Compile Include="MealModels\MealPlanModels\MealPlanCreate.cs" />
     <Compile Include="MealModels\MealPlanModels\MealPlanDetail.cs" />
     <Compile Include="MealModels\MealPlanModels\MealPlanEdit.cs" />

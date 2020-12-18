@@ -261,6 +261,9 @@
     <Content Include="Views\Workout\Edit.cshtml" />
     <Content Include="Views\Workout\Delete.cshtml" />
     <Content Include="Views\Workout\Details.cshtml" />
+    <Content Include="Views\Meal\Details.cshtml" />
+    <Content Include="Views\Meal\Edit.cshtml" />
+    <Content Include="Views\Meal\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
