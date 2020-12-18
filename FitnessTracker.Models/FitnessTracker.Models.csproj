@@ -71,6 +71,7 @@
     <Compile Include="WorkoutModels\WorkoutModels\WorkoutCreate.cs" />
     <Compile Include="WorkoutModels\WorkoutModels\WorkoutDetail.cs" />
     <Compile Include="WorkoutModels\WorkoutModels\WorkoutListItem.cs" />
+    <Compile Include="WorkoutModels\WorkoutModels\WorkoutUpdate.cs" />
     <Compile Include="WorkoutModels\WorkoutPlan\WorkoutPlanCreate.cs" />
     <Compile Include="WorkoutModels\WorkoutPlan\WorkoutPlanDetail.cs" />
     <Compile Include="WorkoutModels\WorkoutPlan\WorkoutPlanListItem.cs" />

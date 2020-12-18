@@ -78,5 +78,43 @@ namespace FitnessTracker.Services.WorkoutServices
                 };
             }
         }
+
+        //Edit Workout
+        public bool UpdateWorkout(WorkoutUpdate model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Workouts
+                    .Single(w => w.WorkoutId == model.WorkoutId && w.OwnerId == _userId);
+
+                entity.Title = model.Title;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        //Delete workout
+        public bool DeleteWorkout(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Workouts
+                    .Single(w => w.WorkoutId == id && w.OwnerId == _userId);
+
+                var related =
+                    ctx
+                    .WorkoutForWorkoutPlans
+                    .Single(w => w.WorkoutId == id && w.Workout.OwnerId == _userId);
+
+                ctx.WorkoutForWorkoutPlans.Remove(related);
+                ctx.Workouts.Remove(entity);
+
+                return ctx.SaveChanges() > 0;
+            }
+        }
     }
 }
