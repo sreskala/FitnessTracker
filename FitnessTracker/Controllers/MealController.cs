@@ -1,4 +1,5 @@
 ﻿using FitnessTracker.Models.MealModels.Meal;
+using FitnessTracker.Models.MealModels.MealModels;
 using FitnessTracker.Services.MealServices;
 using Microsoft.AspNet.Identity;
 using System;
@@ -16,6 +17,15 @@ namespace FitnessTracker.Controllers
         {
             var service = CreateMealService();
             var model = service.GetMeals();
+            return View(model);
+        }
+
+        // GET : Meal/Detail
+        public ActionResult Details(int id)
+        {
+            var service = CreateMealService();
+            var model = service.GetMealById(id);
+
             return View(model);
         }
 
@@ -45,6 +55,69 @@ namespace FitnessTracker.Controllers
 
             ModelState.AddModelError("", "Unable to create meal.");
             return View(model);
+        }
+
+        //GET : Meal/Edit
+        public ActionResult Edit(int id)
+        {
+            var service = CreateMealService();
+            var detail = service.GetMealById(id);
+
+            var model =
+                new MealUpdate()
+                {
+                    MealId = detail.MealId,
+                    Title = detail.Title
+                };
+
+            return View(model);
+        }
+
+        //POST : Meal/Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, MealUpdate model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var service = CreateMealService();
+
+            if (service.UpdateMeal(model))
+            {
+                TempData["SaveResult"] = "Meal was updated.";
+
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Unable to update meal.");
+
+            return View(model);
+        }
+
+        // GET : Meal/Delete
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var service = CreateMealService();
+            var model = service.GetMealById(id);
+
+            return View(model);
+        }
+
+        // POST : Meal/Delete
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteMeal(int id)
+        {
+            var service = CreateMealService();
+            service.DeleteMeal(id);
+
+            TempData["SaveResult"] = "Meal deleted.";
+            return RedirectToAction("Index");
         }
 
         //HELPER METHOD
