@@ -104,6 +104,10 @@
     <Compile Include="Migrations\202012181614589_add-workouts.Designer.cs">
       <DependentUpon>202012181614589_add-workouts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012202204568_addedFoodItem.cs" />
+    <Compile Include="Migrations\202012202204568_addedFoodItem.Designer.cs">
+      <DependentUpon>202012202204568_addedFoodItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorkoutData\Exercise.cs" />
@@ -148,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012181614589_add-workouts.resx">
       <DependentUpon>202012181614589_add-workouts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012202204568_addedFoodItem.resx">
+      <DependentUpon>202012202204568_addedFoodItem.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
