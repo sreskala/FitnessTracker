@@ -57,6 +57,72 @@ namespace FitnessTracker.Controllers
             return View(model);
         }
 
+        // GET : FoodItem/Edit
+        public ActionResult Edit(int id)
+        {
+            var service = CreateFoodItemService();
+            var detail = service.GetFoodItemById(id);
+
+            var model =
+                new FoodItemUpdate()
+                {
+                    FoodItemId = detail.FoodItemId,
+                    Name = detail.Name,
+                    Quantity = detail.Quantity,
+                    Calories = detail.Calories
+                };
+
+            return View(model);
+        }
+
+        // POST : FoodItem/Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, FoodItemUpdate model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var service = CreateFoodItemService();
+
+            if (service.UpdateFoodItem(model))
+            {
+                TempData["SaveResult"] = "Food item updated successfully.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Unable to update food item");
+
+            return View(model);
+        }
+
+        // GET : FoodItem/Delete
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var service = CreateFoodItemService();
+            var model = service.GetFoodItemById(id);
+
+            return View(model);
+        }
+
+        // POST : FoodItem/Delete
+        [ActionName("Delete")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteFoodItem(int id)
+        {
+            var service = CreateFoodItemService();
+
+            service.DeleteFoodItem(id);
+
+            TempData["SaveResult"] = "Deleted food item.";
+
+            return RedirectToAction("Index");
+        }
+
         //Helper methods
         private FoodItemService CreateFoodItemService()
         {
