@@ -1,0 +1,58 @@
+﻿@model FitnessTracker.Models.MealModels.FoodItemModels.FoodItemDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FoodItemDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FoodItemId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FoodItemId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Calories)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calories)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MealId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MealId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
