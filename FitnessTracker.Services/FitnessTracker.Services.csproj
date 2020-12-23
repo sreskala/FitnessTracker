@@ -60,6 +60,7 @@
     <Compile Include="MealServices\MealPlanService.cs" />
     <Compile Include="MealServices\MealService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkoutServices\ExerciseService.cs" />
     <Compile Include="WorkoutServices\WorkoutForWorkoutPlanService.cs" />
     <Compile Include="WorkoutServices\WorkoutPlanService.cs" />
     <Compile Include="WorkoutServices\WorkoutService.cs" />

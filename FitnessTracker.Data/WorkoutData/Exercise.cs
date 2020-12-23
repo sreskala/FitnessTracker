@@ -30,6 +30,8 @@ namespace FitnessTracker.Data.WorkoutData
 
         public MuscleGroup Muscle { get; set; }
 
+        public Guid OwnerId { get; set; }
+
         //Reference to workout
         [Required]
         [ForeignKey(nameof(Workout))]
