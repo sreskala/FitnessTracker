@@ -35,9 +35,9 @@
             @Html.DisplayFor(modelItem => item.WorkoutId)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { id = item.ExerciseId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ExerciseId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ExerciseId })
         </td>
     </tr>
 }
