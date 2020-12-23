@@ -73,6 +73,10 @@
     <Compile Include="MealModels\MealModels\MealDetail.cs" />
     <Compile Include="MealModels\MealModels\MealListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkoutModels\ExerciseModels\ExerciseCreate.cs" />
+    <Compile Include="WorkoutModels\ExerciseModels\ExerciseDetail.cs" />
+    <Compile Include="WorkoutModels\ExerciseModels\ExerciseListItem.cs" />
+    <Compile Include="WorkoutModels\ExerciseModels\ExerciseUpdate.cs" />
     <Compile Include="WorkoutModels\WorkoutModels\WorkoutCreate.cs" />
     <Compile Include="WorkoutModels\WorkoutModels\WorkoutDetail.cs" />
     <Compile Include="WorkoutModels\WorkoutModels\WorkoutListItem.cs" />
