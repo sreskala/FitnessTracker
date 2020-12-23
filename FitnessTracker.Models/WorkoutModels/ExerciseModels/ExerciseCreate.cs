@@ -20,7 +20,11 @@ namespace FitnessTracker.Models.WorkoutModels.ExerciseModels
         public int Repetition { get; set; }
         public int Sets { get; set; }
         public int Length { get; set; }
+
+        [Range(1, int.MaxValue, ErrorMessage = "Select an item.")]
         public WorkoutType Type { get; set; }
+
+        [Range(1, int.MaxValue, ErrorMessage = "Select an item.")]
         public MuscleGroup Muscle { get; set; }
 
         [Required]
