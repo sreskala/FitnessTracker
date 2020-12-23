@@ -109,8 +109,14 @@ namespace FitnessTracker.Services.MealServices
                     .FoodItems
                     .Single(f => f.FoodItemId == id && f.OwnerId == _userId);
 
+                var related =
+                    ctx
+                    .FoodItemForMeals
+                    .Single(fi => fi.FoodItemId == id && fi.FoodItem.OwnerId == _userId);
+
+                ctx.FoodItemForMeals.Remove(related);
                 ctx.FoodItems.Remove(entity);
-                return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() > 0;
             }
         }
     }

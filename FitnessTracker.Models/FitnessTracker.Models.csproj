@@ -62,6 +62,7 @@
     <Compile Include="MealModels\FoodItemModels\FoodItemDetail.cs" />
     <Compile Include="MealModels\FoodItemModels\FoodItemListItem.cs" />
     <Compile Include="MealModels\FoodItemModels\FoodItemUpdate.cs" />
+    <Compile Include="MealModels\JoiningTableModels\FoodItemForMealListItem.cs" />
     <Compile Include="MealModels\JoiningTableModels\MealForMealPlanListItem.cs" />
     <Compile Include="MealModels\JoiningTableModels\WorkoutForWorkoutPlanListItem.cs" />
     <Compile Include="MealModels\MealModels\MealUpdate.cs" />
