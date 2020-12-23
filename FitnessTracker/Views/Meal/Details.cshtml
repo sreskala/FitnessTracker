@@ -33,10 +33,19 @@
         <dd>
             @Html.DisplayFor(model => model.MealPlanId)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FoodItems)
+        </dt>
+        @foreach (var food in Model.FoodItems)
+        {
+            <dd>
+                @Html.DisplayFor(model => food.FoodItem.Name)
+            </dd>
+        }
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MealId}) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MealId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

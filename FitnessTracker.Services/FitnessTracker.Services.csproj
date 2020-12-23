@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GoalServices\GoalService.cs" />
+    <Compile Include="MealServices\FoodItemForMealService.cs" />
     <Compile Include="MealServices\FoodItemService.cs" />
     <Compile Include="MealServices\MealForMealPlanService.cs" />
     <Compile Include="MealServices\MealPlanService.cs" />

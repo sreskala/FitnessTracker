@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Goals\Goal.cs" />
     <Compile Include="MealData\FoodItem.cs" />
+    <Compile Include="MealData\FoodItemForMeal.cs" />
     <Compile Include="MealData\Meal.cs" />
     <Compile Include="MealData\MealForMealPlan.cs" />
     <Compile Include="MealData\MealPlan.cs" />
@@ -112,6 +113,10 @@
     <Compile Include="Migrations\202012230339226_add-exercise.Designer.cs">
       <DependentUpon>202012230339226_add-exercise.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012230557109_add-exercise-join.cs" />
+    <Compile Include="Migrations\202012230557109_add-exercise-join.Designer.cs">
+      <DependentUpon>202012230557109_add-exercise-join.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorkoutData\Exercise.cs" />
@@ -162,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012230339226_add-exercise.resx">
       <DependentUpon>202012230339226_add-exercise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012230557109_add-exercise-join.resx">
+      <DependentUpon>202012230557109_add-exercise-join.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

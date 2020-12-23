@@ -1,5 +1,7 @@
 ﻿using FitnessTracker.Data;
 using FitnessTracker.Data.MealData;
+using FitnessTracker.Models.MealModels.FoodItemModels;
+using FitnessTracker.Models.MealModels.JoiningTableModels;
 using FitnessTracker.Models.MealModels.Meal;
 using FitnessTracker.Models.MealModels.MealModels;
 using System;
@@ -74,7 +76,24 @@ namespace FitnessTracker.Services.MealServices
                 {
                     MealId = entity.MealId,
                     Title = entity.Title,
-                    MealPlanId = entity.MealPlanId
+                    MealPlanId = entity.MealPlanId,
+                    FoodItems = 
+                        ctx
+                        .FoodItemForMeals
+                        .Where(fm => fm.MealId == entity.MealId)
+                        .Select(fm =>
+                        new FoodItemForMealListItem
+                        {
+                            Id = fm.Id,
+                            MealId = fm.MealId,
+                            FoodItemId = fm.FoodItemId,
+                            FoodItem = new FoodItemListItem
+                            {
+                                FoodItemId = fm.FoodItemId,
+                                Name = fm.FoodItem.Name
+                            }
+                        }
+                        ).ToList()
                 };
             }
         }

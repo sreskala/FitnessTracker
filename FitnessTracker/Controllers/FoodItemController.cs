@@ -131,5 +131,17 @@ namespace FitnessTracker.Controllers
 
             return service;
         }
+
+        public ActionResult AddFoodItemsToMeal()
+        {
+            var uId = Guid.Parse(User.Identity.GetUserId());
+            var service = new FoodItemForMealService(uId);
+
+            service.CreateFoodItemsForMeals();
+
+            TempData["SaveResult"] = "Added Food items to meal!";
+
+            return RedirectToAction("Index");
+        }
     }
 }
