@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FitnessTracker.Data.WorkoutData
 {
-    public enum WorkoutType { Cardio, Weight};
+    public enum WorkoutType { Cardio = 1, Weight};
     public enum MuscleGroup { Chest = 1, FDeltoid, Biceps, Forearms, Abdominals, Obliques, Quadriceps, Tibialis, Trapezius, RDeltoid, MiddleBack, Triceps, LowerBack, Glutes, Hamstrings, Calf }
     public class Exercise
     {
