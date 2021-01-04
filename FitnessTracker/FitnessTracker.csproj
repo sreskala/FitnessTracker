@@ -192,6 +192,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Image\colton-duke-QRU0i5AqEJA-unsplash.jpg" />
     <Content Include="Content\Image\lyfe-fuel-4wtxPhvQZds-unsplash.jpg" />
+    <Content Include="Content\Image\undraw_healthy_habit_bh5w.svg" />
+    <Content Include="Content\Image\undraw_healthy_options_sdo3.svg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
