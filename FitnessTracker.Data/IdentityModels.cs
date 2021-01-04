@@ -21,6 +21,12 @@ namespace FitnessTracker.Data
             // Add custom user claims here
             return userIdentity;
         }
+
+        //Custom Fields
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int Height { get; set; }
+        public int Weight { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

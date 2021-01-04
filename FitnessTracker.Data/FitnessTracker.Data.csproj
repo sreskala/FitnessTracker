@@ -121,6 +121,10 @@
     <Compile Include="Migrations\202101041837354_joinTableExercise.Designer.cs">
       <DependentUpon>202101041837354_joinTableExercise.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101041923196_userCustomFields.cs" />
+    <Compile Include="Migrations\202101041923196_userCustomFields.Designer.cs">
+      <DependentUpon>202101041923196_userCustomFields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorkoutData\Exercise.cs" />
@@ -178,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101041837354_joinTableExercise.resx">
       <DependentUpon>202101041837354_joinTableExercise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101041923196_userCustomFields.resx">
+      <DependentUpon>202101041923196_userCustomFields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

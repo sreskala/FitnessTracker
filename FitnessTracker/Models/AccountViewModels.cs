@@ -64,6 +64,14 @@ namespace FitnessTracker.Models
 
     public class RegisterViewModel
     {
+        [Required(ErrorMessage = "First name is required.")]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "Last name is required")]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -79,6 +87,13 @@ namespace FitnessTracker.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Display(Name = "Height in Inches")]
+        public int Height { get; set; }
+
+        [Display(Name = "Weight in Pounds")]
+        public int Weight { get; set; }
+
     }
 
     public class ResetPasswordViewModel
