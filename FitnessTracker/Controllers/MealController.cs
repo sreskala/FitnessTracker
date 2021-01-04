@@ -138,7 +138,7 @@ namespace FitnessTracker.Controllers
 
             TempData["SaveResult"] = "Meals added.";
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "MealPlan");
         }
     }
 }

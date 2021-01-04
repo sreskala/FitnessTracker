@@ -135,5 +135,17 @@ namespace FitnessTracker.Controllers
 
             return service;
         }
+
+        public ActionResult AddExercisesToWorkouts()
+        {
+            var user = Guid.Parse(User.Identity.GetUserId());
+            var service = new ExerciseForWorkoutService(user);
+
+            service.CreateExercisesForWorkouts();
+
+            TempData["SaveResult"] = "Successfully added exercises.";
+
+            return RedirectToAction("Index", "Workout");
+        }
     }
 }

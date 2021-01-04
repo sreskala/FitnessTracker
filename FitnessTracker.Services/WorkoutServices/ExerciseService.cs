@@ -122,9 +122,15 @@ namespace FitnessTracker.Services.WorkoutServices
                     .Exercises
                     .Single(e => e.ExerciseId == id && e.OwnerId == _userId);
 
+                var related =
+                    ctx
+                    .ExerciseForWorkouts
+                    .Single(e => e.ExerciseId == id && e.Exercise.OwnerId == _userId);
+
+                ctx.ExerciseForWorkouts.Remove(related);
                 ctx.Exercises.Remove(entity);
 
-                return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() > 0;
             }
         }
     }
