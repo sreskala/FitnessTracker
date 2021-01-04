@@ -190,6 +190,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Image\colton-duke-QRU0i5AqEJA-unsplash.jpg" />
+    <Content Include="Content\Image\lyfe-fuel-4wtxPhvQZds-unsplash.jpg" />
+    <Content Include="Content\Image\undraw_healthy_habit_bh5w.svg" />
+    <Content Include="Content\Image\undraw_healthy_options_sdo3.svg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -207,6 +211,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Styles\DetailsView.css" />
+    <Content Include="Styles\HomePage.css" />
     <Content Include="Styles\StyleSheet.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

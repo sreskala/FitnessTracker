@@ -4,10 +4,15 @@
     ViewBag.Title = "Details";
 }
 
+@section Styles {
+    <link href="@Url.Content("~/Styles/DetailsView.css")" rel="stylesheet" type="text/css"/>
+}
+
+
 <h2>Details</h2>
 
 <div>
-    <h4>MealDetail</h4>
+    <h4 class="meal-detail-head">Meal Detail</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
