@@ -34,6 +34,16 @@
             @Html.DisplayFor(model => model.WorkoutPlanId)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Exercises)
+        </dt>
+        @foreach(var exercise in Model.Exercises)
+        {
+            <dd>
+                @Html.DisplayFor(model => exercise.Exercise.Name)
+            </dd>
+        }
+
     </dl>
 </div>
 <p>

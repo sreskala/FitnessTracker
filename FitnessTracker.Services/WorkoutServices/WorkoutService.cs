@@ -1,5 +1,7 @@
 ﻿using FitnessTracker.Data;
 using FitnessTracker.Data.WorkoutData;
+using FitnessTracker.Models.MealModels.JoiningTableModels;
+using FitnessTracker.Models.WorkoutModels.ExerciseModels;
 using FitnessTracker.Models.WorkoutModels.WorkoutModels;
 using System;
 using System.Collections.Generic;
@@ -74,7 +76,25 @@ namespace FitnessTracker.Services.WorkoutServices
                 {
                     WorkoutId = entity.WorkoutId,
                     Title = entity.Title,
-                    WorkoutPlanId = entity.WorkoutPlanId
+                    WorkoutPlanId = entity.WorkoutPlanId,
+                    Exercises =
+                        ctx
+                        .ExerciseForWorkouts
+                        .Where(e => e.WorkoutId == entity.WorkoutId)
+                        .Select(ei =>
+                            new ExerciseForWorkoutListItem
+                            {
+                                Id = ei.Id,
+                                ExerciseId = ei.ExerciseId,
+                                WorkoutId = ei.WorkoutId,
+                                Exercise = new ExerciseListItem
+                                {
+                                    ExerciseId = ei.ExerciseId,
+                                    Name = ei.Exercise.Name,
+                                    Type = ei.Exercise.Type,
+                                }
+                            }
+                            ).ToList()
                 };
             }
         }
