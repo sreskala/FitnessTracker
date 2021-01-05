@@ -177,6 +177,8 @@
     <Compile Include="Controllers\MealPlanController.cs" />
     <Compile Include="Controllers\WorkoutController.cs" />
     <Compile Include="Controllers\WorkoutPlanController.cs" />
+    <Compile Include="Extensions\ClaimsPrincipalExtension.cs" />
+    <Compile Include="Extensions\IdentityExtension.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

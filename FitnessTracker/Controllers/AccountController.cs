@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using FitnessTracker.Models;
 using FitnessTracker.Data;
+using System.Collections.Generic;
 
 namespace FitnessTracker.Controllers
 {
@@ -154,7 +155,7 @@ namespace FitnessTracker.Controllers
             {
                 var user = new ApplicationUser 
                 { 
-                    UserName = $"{model.FirstName} {model.LastName}", 
+                    UserName = model.Email, 
                     Email = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
@@ -164,6 +165,14 @@ namespace FitnessTracker.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    //var claims = new List<Claim>
+                    //{
+                    //    new Claim("FirstName", user.FirstName),
+                    //    new Claim("LastName", user.LastName),
+
+                    //};
+                    //await UserManager.AddClaimAsync(user.Id, new Claim("FirstName",user.FirstName));
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
