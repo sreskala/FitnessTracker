@@ -1,0 +1,57 @@
+﻿@using Microsoft.AspNet.Identity
+@using FitnessTracker.Extensions
+@model FitnessTracker.Models.PlanMergeMealWorkout
+@{
+    ViewBag.Title = User.Identity.GetUserFirstName() + "'s Dashboard";
+}
+@section Styles{
+    <link href="@Url.Content("~/Styles/UserPage.css")" rel="stylesheet" type="text/css" />
+}
+
+
+<div class="container margin-top-view">
+    <h2>@ViewBag.Title</h2>
+    <div class="dashboard-container">
+        <div class="user-info">
+            <img src="~/Content/Image/avatar-1577909.svg" width="200" height="200"/>
+            <h3>@User.Identity.GetUserFirstName()</h3>
+            <h3>@User.Identity.GetUserLastName()</h3>
+        </div>
+        <div class="user-stats">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stats</th>
+                        <th>Stat Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Height</td>
+                        <td>@User.Identity.GetUserHeight()</td>
+                    </tr>
+                    <tr>
+                        <td>Weight</td>
+                        <td>@User.Identity.GetUserWeight()</td>
+                    </tr>
+                    <tr>
+                        <td>Meal Plan</td>
+                        @if(Model.MealPlan == null)
+                        {
+                            <td>No current meal plans</td>
+                        }
+                        <td>@Html.DisplayFor(model => model.MealPlan.Title)</td>
+                    </tr>
+                    <tr>
+                        <td>Workout Plan</td>
+                        @if(Model.WorkoutPlan == null)
+                        {
+                            <td>No current workout plans</td>
+                        }
+                        <td>@Html.DisplayFor(model => model.WorkoutPlan.Title)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
