@@ -1,7 +1,11 @@
-﻿@{
+﻿@using Microsoft.AspNet.Identity
+@using FitnessTracker.Extensions
+@{
     ViewBag.Title = "About";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
-
+<h3>testing @User.Identity.GetUserHeight()</h3>
+<h3> Weight: @User.Identity.GetUserWeight()</h3>
+<h3> Last Name: @User.Identity.GetUserLastName()</h3>
 <p>Use this area to provide additional information.</p>
