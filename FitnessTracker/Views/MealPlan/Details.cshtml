@@ -60,8 +60,10 @@
         }
         
     </dl>
+
+    <button>@Html.ActionLink("Go to Meals", "Index","Meal", routeValues: null, htmlAttributes: new { })</button>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MealPlanId}) |
     @Html.ActionLink("Back to List", "Index")
 </p>

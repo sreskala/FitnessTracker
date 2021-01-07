@@ -37,7 +37,7 @@
         <dt>
             @Html.DisplayNameFor(model => model.Exercises)
         </dt>
-        @foreach(var exercise in Model.Exercises)
+        @foreach (var exercise in Model.Exercises)
         {
             <dd>
                 @Html.DisplayFor(model => exercise.Exercise.Name)
@@ -45,6 +45,7 @@
         }
 
     </dl>
+    <button>@Html.ActionLink("Go to Exercises", "Index", "Exercise", routeValues: null, htmlAttributes: new { })</button>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.WorkoutId}) |
