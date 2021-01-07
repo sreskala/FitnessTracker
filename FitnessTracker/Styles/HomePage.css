@@ -45,9 +45,8 @@
     align-items: center;
 }
 
-.button-link-container > li {
-    display: inline;
-    text-decoration: none;
+.button-link-container {
+    text-align: center;
 }
 
 .footer-info-container {
