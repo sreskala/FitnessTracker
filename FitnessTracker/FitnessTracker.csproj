@@ -175,6 +175,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MealController.cs" />
     <Compile Include="Controllers\MealPlanController.cs" />
+    <Compile Include="Controllers\UserDashboardController.cs" />
     <Compile Include="Controllers\WorkoutController.cs" />
     <Compile Include="Controllers\WorkoutPlanController.cs" />
     <Compile Include="Extensions\ClaimsPrincipalExtension.cs" />
@@ -192,6 +193,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Image\avatar-1577909.svg" />
     <Content Include="Content\Image\colton-duke-QRU0i5AqEJA-unsplash.jpg" />
     <Content Include="Content\Image\lyfe-fuel-4wtxPhvQZds-unsplash.jpg" />
     <Content Include="Content\Image\undraw_healthy_habit_bh5w.svg" />
@@ -216,6 +218,7 @@
     <Content Include="Styles\DetailsView.css" />
     <Content Include="Styles\HomePage.css" />
     <Content Include="Styles\StyleSheet.css" />
+    <Content Include="Styles\UserPage.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -285,6 +288,7 @@
     <Content Include="Views\Exercise\Details.cshtml" />
     <Content Include="Views\Exercise\Edit.cshtml" />
     <Content Include="Views\Exercise\Delete.cshtml" />
+    <Content Include="Views\UserDashboard\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

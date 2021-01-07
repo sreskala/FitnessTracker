@@ -74,6 +74,7 @@
     <Compile Include="MealModels\MealModels\MealCreate.cs" />
     <Compile Include="MealModels\MealModels\MealDetail.cs" />
     <Compile Include="MealModels\MealModels\MealListItem.cs" />
+    <Compile Include="PlanMergeMealWorkout.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorkoutModels\ExerciseModels\ExerciseCreate.cs" />
     <Compile Include="WorkoutModels\ExerciseModels\ExerciseDetail.cs" />
