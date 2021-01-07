@@ -2,14 +2,32 @@
 
 }
 
+h2 {
+    text-align: center;
+}
+
 .margin-top-view {
     margin-top: 50px;
 }
 
 .dashboard-container {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-evenly;
+}
+
+.user-info {
+    padding: 20px 0;
+    text-align: center;
+    margin: 10px;
+}
+
+.user-info > img {
+    border: 1px solid black;
+}
+
+.user-stats {
+    padding: 20px 0;
 }
 
 table {
@@ -18,6 +36,8 @@ table {
     border-radius: 5px;
     margin: 10px;
     font-size: 2rem;
+    table-layout: fixed;
+    width: 600px;
 }
 
 thead tr {
@@ -34,4 +54,9 @@ tr:nth-child(even) {
 
 td, th {
     padding: 12px 20px;
+    width: 50%;
+}
+
+.plan-link-container {
+    text-align: center;
 }

@@ -28,11 +28,11 @@
                 <tbody>
                     <tr>
                         <td>Height</td>
-                        <td>@User.Identity.GetUserHeight()</td>
+                        <td>@User.Identity.GetUserHeight()"</td>
                     </tr>
                     <tr>
                         <td>Weight</td>
-                        <td>@User.Identity.GetUserWeight()</td>
+                        <td>@User.Identity.GetUserWeight() lbs.</td>
                     </tr>
                     <tr>
                         <td>Meal Plan</td>
@@ -53,5 +53,10 @@
                 </tbody>
             </table>
         </div>
+    </div>
+
+    <div class="plan-link-container">
+        <button>@Html.ActionLink("Go to Meal Plans", "Index", "MealPlan", routeValues: null, htmlAttributes: new { id = "mealPlanLink"})</button>
+        <button>@Html.ActionLink("Go to Workout Plans", "Index", "WorkoutPlan", routeValues: null, htmlAttributes: new { id = "workoutPlanLink"})</button>
     </div>
 </div>
