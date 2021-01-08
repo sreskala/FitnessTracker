@@ -2,6 +2,7 @@
     background-color: rgba(218, 223, 225, 0.5);
     padding: 0;
     margin: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 .navbar{
@@ -22,4 +23,14 @@
     background-color: rgb(34,34,34);
     padding: 1.5rem;
     color: #9D9D9D;
+}
+
+.fitness-link {
+    padding: 0 1.5rem;
+    margin: 5px 10px;
+    font-size: 18px;
+}
+
+.collapse {
+    background-color: rgb(34,34,34);
 }

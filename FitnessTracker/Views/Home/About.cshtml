@@ -1,11 +1,74 @@
-﻿@using Microsoft.AspNet.Identity
-@using FitnessTracker.Extensions
-@{
+﻿@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-<h3>testing @User.Identity.GetUserHeight()</h3>
-<h3> Weight: @User.Identity.GetUserWeight()</h3>
-<h3> Last Name: @User.Identity.GetUserLastName()</h3>
-<p>Use this area to provide additional information.</p>
+
+@section Styles{
+    <link href="@Url.Content("~/Styles/AboutPage.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="about-container">
+    <h2>@ViewBag.Title Health Warrior</h2>
+
+    <div class="container main-about">
+        <p>
+            <span class="app-name">Health Warrior</span> was created in order to bring both facets of a healthy lifestyle together:
+            Nutrition and Exercise. Our application looks to bridge the gap that most other tracking applications fail to meet. How?
+            Health Warrior lets you fully customize every aspect of both your meal plans and workout plans.
+        </p>
+
+        <p>
+            Within each meal plan is the ability to add several meals to it, helping you separate a certain plan from another. Then
+            within each meal you are able to create and add specific food-items to help organize your plan, with the option of customizing
+            every aspect of it from quantity to calories to the food name (that might not even show up on other tracking apps).
+        </p>
+
+        <p>
+            Each workout plan lets you tailor its containing workouts so you can go as hard (or light if it's a rest day) as you want.
+            The workouts let you add individual exercises to them to plan as best as possible for your routine. The exercises, just like
+            the food-items, are fully customizable to best fit what you're looking for.
+        </p>
+    </div>
+
+    <hr />
+
+    <div class="features-container">
+
+        <h3>Features</h3>
+
+        <div class="features-icons">
+            <div class="icon-segment">
+                <i class="fas fa-utensils"></i>
+                <p>Track Meals</p>
+            </div>
+            <div class="icon-segment">
+                <i class="fas fa-dumbbell"></i>
+                <p>Track Workouts</p>
+            </div>
+            <div class="icon-segment">
+                <i class="fas fa-check-square"></i>
+                <p>Track Goals</p>
+            </div>
+
+
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="coming-soon-container">
+        <h3>Coming Soon</h3>
+        <div class="extra-features">
+            <img src="~/Content/Image/iphoneapp.png" height="500" />
+            <div class="coming-soon-text">
+                <ul>
+                    <li>Mobile friendly version</li>
+                    <li>Fetching 3rd party data from meal APIs</li>
+                    <li>Email reminders for goal tracking</li>
+                    <li>Extra tracking such as water intake, sleep, etc...</li>
+                    <li>And many more features!</li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+</div>

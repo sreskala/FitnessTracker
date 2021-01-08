@@ -1,0 +1,72 @@
+﻿hr {
+    border: 1px solid rgba(153,6,6,0.5);
+    margin: 30px auto;
+}
+
+.about-container {
+    margin-top: 60px;
+}
+
+.about-container > h2 {
+    text-align: center;
+}
+
+.main-about {
+    text-align: center;
+}
+
+.main-about > p {
+    font-size: 18px;
+    line-height: 2.5rem;
+    margin: 20px auto;
+    width: 500px;
+}
+
+.features-container {
+    text-align: center;
+}
+
+.features-icons {
+    display: flex;
+    justify-content: center;
+}
+
+.icon-segment {
+    margin: 5px 40px;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.icon-segment > p {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.fas {
+    font-size: 60px;
+    color: #990606;
+}
+
+.coming-soon-container {
+    text-align: center;
+}
+
+.coming-soon-container > h3 {
+    margin-bottom: 50px;
+}
+
+.extra-features {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.coming-soon-text {
+    text-align: initial;
+    line-height: 4rem;
+    font-size: 20px;
+}
+
+.extra-features > img {
+    transform: rotate(30deg);
+}

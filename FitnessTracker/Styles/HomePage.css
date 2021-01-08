@@ -31,12 +31,15 @@
 .hero-title-container > h2 {
     font-size: 35px;
     color: red;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Permanent Marker', cursive;
+    -webkit-text-stroke: 1px black;
+    /*-webkit-text-fill-color: white;*/
 }
 
 .hero-title {
     font-size: 70px;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Permanent Marker', cursive;
+    text-shadow: 7px -2px 4px #c55959;
     margin: 0 auto;
 }
 
@@ -45,8 +48,34 @@
     align-items: center;
 }
 
+.vertical-align h3 {
+    font-weight: bold;
+}
+
+.vertical-align p {
+    font-size: 20px;
+    line-height: 2.5rem;
+}
+
 .button-link-container {
     text-align: center;
+    margin-top: 15px;
+    padding: .5rem;
+}
+
+.button-link-container > button {
+    margin: 0 15px;
+    padding: .5rem;
+    font-size: 30px;
+    border-radius: 10px;
+    border: 2px solid rgba(0,0,0, 0.3);
+    width: 260px;
+}
+
+.button-link-container > button:hover {
+    background-color: rgb(34,34,34);
+    border: 2px solid #337ab7;
+    color: #9d9d9d;
 }
 
 .footer-info-container {
@@ -59,4 +88,20 @@
     background-color: rgb(34,34,34);
     padding: 1.5rem;
     color: #9D9D9D;
+}
+
+#registerLink {
+    text-decoration: none;
+}
+
+#registerLink:hover {
+    color: #9d9d9d;
+}
+
+#loginLink {
+    text-decoration: none;
+}
+
+#loginLink:hover {
+    color: #9d9d9d;
 }
