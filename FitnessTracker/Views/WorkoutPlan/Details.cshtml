@@ -4,57 +4,63 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+@section Styles {
+    <link href="@Url.Content("~/Styles/DetailsView.css")" rel="stylesheet" type="text/css" />
+}
 
-<div>
-    <h4>WorkoutPlanDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.WorkoutPlanId)
-        </dt>
+<div class="padding-top-view">
+    <h2 class="page-header title-header">@ViewBag.Title</h2>
 
-        <dd>
-            @Html.DisplayFor(model => model.WorkoutPlanId)
-        </dd>
+    <div>
+        <h4>Workout Plan #@Model.WorkoutPlanId</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.WorkoutPlanId)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateCreatedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateCreatedUtc)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateModifiedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateModifiedUtc)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Workouts)
-        </dt>
-        @foreach (var workout in Model.Workouts)
-        {
             <dd>
-                @Html.DisplayFor(model => workout.Workout.Title)
+                @Html.DisplayFor(model => model.WorkoutPlanId)
             </dd>
-        }
 
-    </dl>
-    <button>@Html.ActionLink("Go to Workouts", "Index", "Workout", routeValues: null, htmlAttributes: new { })</button>
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateCreatedUtc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateCreatedUtc)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateModifiedUtc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateModifiedUtc)
+            </dd>
+            <dt style="margin:0;">
+                @Html.DisplayNameFor(model => model.Workouts)
+            </dt>
+            @foreach (var workout in Model.Workouts)
+            {
+                <dd>
+                    @Html.DisplayFor(model => workout.Workout.Title)
+                </dd>
+            }
+
+        </dl>
+        <button>@Html.ActionLink("Go to Workouts", "Index", "Workout", routeValues: null, htmlAttributes: new { })</button>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.WorkoutPlanId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.WorkoutPlanId}) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
