@@ -4,66 +4,80 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+@section Styles {
+    <link href="@Url.Content("~/Styles/DetailsView.css")" rel="stylesheet" type="text/css" />
+}
 
-<div>
-    <h4>MealPlanDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MealPlanId)
-        </dt>
+<div class="padding-top-view">
+    <h2 class="page-header title-header">@ViewBag.Title</h2>
 
-        <dd>
-            @Html.DisplayFor(model => model.MealPlanId)
-        </dd>
+    <div class="details-container">
+        <h4>#@Model.MealPlanId Meal Plan Detail</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MealPlanId)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MealPlanId)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DateCreatedUtc)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DateCreatedUtc)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DateCreatedUtc)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DateModifiedUtc)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DateCreatedUtc)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DateModifiedUtc)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DateModifiedUtc)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Length)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DateModifiedUtc)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Length)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Meals)
-        </dt>
-        @foreach(var meal in Model.Meals)
-        {
-             <dd>
-                 @Html.DisplayFor(model => meal.Meal.Title)
-             </dd>
-        }
-        
-    </dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.Length)
+            </dt>
 
-    <button>@Html.ActionLink("Go to Meals", "Index","Meal", routeValues: null, htmlAttributes: new { })</button>
+            <dd>
+                @Html.DisplayFor(model => model.Length)
+            </dd>
+            <dt style="margin:0;">
+                @Html.DisplayNameFor(model => model.Meals)
+            </dt>
+            @if (Model.Meals.Count < 1)
+            {
+                <dd>No meals listed for this meal plan.</dd>
+            }
+            else
+            {
+                foreach (var meal in Model.Meals)
+                {
+                    <dd>
+                        @Html.DisplayFor(model => meal.Meal.Title)
+                    </dd>
+                }
+
+            }
+
+        </dl>
+
+        <button>@Html.ActionLink("Go to Meals", "Index", "Meal", routeValues: null, htmlAttributes: new { @class = "button-link-index" })</button>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MealPlanId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MealPlanId}) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

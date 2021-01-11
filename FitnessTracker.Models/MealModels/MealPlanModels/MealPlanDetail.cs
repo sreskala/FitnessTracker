@@ -11,6 +11,7 @@ namespace FitnessTracker.Models.MealModels.MealPlan
 {
     public class MealPlanDetail
     {
+        [Display(Name = "Meal Plan #")]
         public int MealPlanId { get; set; }
         public string Title { get; set; }
 
@@ -19,6 +20,8 @@ namespace FitnessTracker.Models.MealModels.MealPlan
 
         [Display(Name = "Date Modified")]
         public DateTimeOffset? DateModifiedUtc { get; set; }
+
+        [Display(Name = "Length of Meal Plan in Weeks")]
         public int? Length { get; set; }
 
         public List<MealForMealPlanListItem> Meals { get; set; }

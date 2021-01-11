@@ -1,57 +1,72 @@
 ﻿@model IEnumerable<FitnessTracker.Models.MealModels.MealPlan.MealPlanListItem>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Meal Plans";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
-@if (TempData.ContainsKey("SaveResult"))
-{
-    <div class="alert alert-success fade in" role="alert">
-        @ViewBag.SaveResult
-        <button type="button" class="close" data-dismiss="alert">
-            <span>&times;</span>
-        </button>
-    </div>
+@section Styles {
+    <link href="@Url.Content("~/Styles/DetailsView.css")" rel="stylesheet" type="text/css" />
 }
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MealPlanId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateCreatedUtc)
-        </th>
-        <th></th>
-    </tr>
+<div class="padding-top-view">
+    <h2 class="page-header title-header">@ViewBag.Title</h2>
 
-    @foreach (var item in Model)
+    <p class="create-link">
+        @Html.ActionLink("Create New", "Create")
+    </p>
+
+    @if (TempData.ContainsKey("SaveResult"))
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MealPlanId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateCreatedUtc)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MealPlanId}) |
-                @Html.ActionLink("Details", "Details", new { id = item.MealPlanId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.MealPlanId })
-            </td>
-        </tr>
+        <div class="alert alert-success fade in" role="alert">
+            @ViewBag.SaveResult
+            <button type="button" class="close" data-dismiss="alert">
+                <span>&times;</span>
+            </button>
+        </div>
     }
 
-</table>
+    @if (Model.Count() < 1)
+    {
+        <h3>Looks like your Meal Plans are empty! Hit create new to start adding some.</h3>
+    }
+    else
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.MealPlanId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateCreatedUtc)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MealPlanId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateCreatedUtc)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.MealPlanId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.MealPlanId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.MealPlanId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+
+
+</div>
