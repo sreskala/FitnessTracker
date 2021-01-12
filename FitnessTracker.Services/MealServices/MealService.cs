@@ -25,7 +25,7 @@ namespace FitnessTracker.Services.MealServices
         //Get all Meals
         public IEnumerable<MealListItem> GetMeals()
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
@@ -46,26 +46,37 @@ namespace FitnessTracker.Services.MealServices
         //Create meal
         public bool CreateMeal(MealCreate model)
         {
-            var entity =
-                new Meal()
-                {
-                    Title = model.Title,
-                    OwnerId = _userId,
-                    MealPlanId = model.MealPlanId
-                };
-
-            using(var ctx = new ApplicationDbContext())
+            //Error handling
+            using (var ctx = new ApplicationDbContext())
             {
-                ctx.Meals.Add(entity);
+                var mealPlanIds = ctx.MealPlans.Where(m => m.OwnerId == _userId).Select(m => m.MealPlanId);
+                //var ownerIds = ctx.MealPlans.Where(m => m.OwnerId == _userId).Select(o => o.OwnerId);
 
-                return ctx.SaveChanges() == 1;
+                if (mealPlanIds.Contains(model.MealPlanId))
+                {
+                    var entity =
+                    new Meal()
+                    {
+                        Title = model.Title,
+                        OwnerId = _userId,
+                        MealPlanId = model.MealPlanId
+                    };
+
+                    ctx.Meals.Add(entity);
+
+                    return ctx.SaveChanges() == 1;
+                } else
+                {
+                    return false;
+                }
             }
+
         }
 
         //Get a specific meal by Id
         public MealDetail GetMealById(int id)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
@@ -77,7 +88,7 @@ namespace FitnessTracker.Services.MealServices
                     MealId = entity.MealId,
                     Title = entity.Title,
                     MealPlanId = entity.MealPlanId,
-                    FoodItems = 
+                    FoodItems =
                         ctx
                         .FoodItemForMeals
                         .Where(fm => fm.MealId == entity.MealId)
@@ -101,7 +112,7 @@ namespace FitnessTracker.Services.MealServices
         //Update meal
         public bool UpdateMeal(MealUpdate model)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
@@ -117,19 +128,31 @@ namespace FitnessTracker.Services.MealServices
         //Delete meal
         public bool DeleteMeal(int id)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Meals
                     .SingleOrDefault(m => m.MealId == id && m.OwnerId == _userId);
 
-                var related =
+                var relatedMeal =
                     ctx
                     .MealForMealPlans
                     .SingleOrDefault(m => m.MealId == id && m.Meal.OwnerId == _userId);
 
-                ctx.MealForMealPlans.Remove(related);
+                var relatedFood =
+                    ctx
+                    .FoodItemForMeals
+                    .SingleOrDefault(f => f.MealId == id);
+
+                var foodItems =
+                    ctx
+                    .FoodItems
+                    .Where(f => f.MealId == id && f.OwnerId == _userId);
+
+                ctx.MealForMealPlans.Remove(relatedMeal);
+                ctx.FoodItemForMeals.Remove(relatedFood);
+                ctx.FoodItems.RemoveRange(foodItems);
                 ctx.Meals.Remove(entity);
 
                 return ctx.SaveChanges() > 0;
