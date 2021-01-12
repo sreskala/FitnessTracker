@@ -31,6 +31,22 @@
     font-size: 18px;
 }
 
+.navbar-login-link {
+    font-size: 18px;
+}
+
 .collapse {
     background-color: rgb(34,34,34);
+}
+
+@media screen and (max-width: 995px){
+    .fitness-link {
+        padding: 0 1rem;
+        font-size: 16px;
+        margin: 5px 8px;
+    }
+
+    .navbar-login-link {
+        font-size: 16px;
+    }
 }
