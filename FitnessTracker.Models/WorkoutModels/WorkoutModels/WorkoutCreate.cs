@@ -14,6 +14,7 @@ namespace FitnessTracker.Models.WorkoutModels.WorkoutModels
         public string Title { get; set; }
 
         [Required]
+        [Display(Name = "Tied to Workout Plan #")]
         public int WorkoutPlanId { get; set; }
     }
 }

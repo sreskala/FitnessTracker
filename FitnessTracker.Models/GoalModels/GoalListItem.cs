@@ -9,6 +9,7 @@ namespace FitnessTracker.Models.GoalModels
 {
     public class GoalListItem
     {
+        [Display(Name = "Goal #")]
         public int GoalId { get; set; }
         public string Title { get; set; }
 
