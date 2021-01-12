@@ -70,7 +70,7 @@ namespace FitnessTracker.Services.WorkoutServices
                 var entity =
                     ctx
                     .Workouts
-                    .Single(w => w.WorkoutId == id && w.OwnerId == _userId);
+                    .SingleOrDefault(w => w.WorkoutId == id && w.OwnerId == _userId);
 
                 return new WorkoutDetail
                 {
@@ -107,7 +107,7 @@ namespace FitnessTracker.Services.WorkoutServices
                 var entity =
                     ctx
                     .Workouts
-                    .Single(w => w.WorkoutId == model.WorkoutId && w.OwnerId == _userId);
+                    .SingleOrDefault(w => w.WorkoutId == model.WorkoutId && w.OwnerId == _userId);
 
                 entity.Title = model.Title;
 
@@ -123,12 +123,12 @@ namespace FitnessTracker.Services.WorkoutServices
                 var entity =
                     ctx
                     .Workouts
-                    .Single(w => w.WorkoutId == id && w.OwnerId == _userId);
+                    .SingleOrDefault(w => w.WorkoutId == id && w.OwnerId == _userId);
 
                 var related =
                     ctx
                     .WorkoutForWorkoutPlans
-                    .Single(w => w.WorkoutId == id && w.Workout.OwnerId == _userId);
+                    .SingleOrDefault(w => w.WorkoutId == id && w.Workout.OwnerId == _userId);
 
                 ctx.WorkoutForWorkoutPlans.Remove(related);
                 ctx.Workouts.Remove(entity);

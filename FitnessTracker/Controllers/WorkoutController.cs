@@ -112,11 +112,17 @@ namespace FitnessTracker.Controllers
         public ActionResult DeleteWorkout(int id)
         {
             var service = CreateWorkoutService();
-            service.DeleteWorkout(id);
+            var model = service.GetWorkoutById(id);
 
-            TempData["SaveResult"] = "Workout deleted.";
+            if(service.DeleteWorkout(id))
+            {
+                TempData["SaveResult"] = "Workout deleted.";
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Unable to delete workout");
+            return View(model);
         }
 
         //HELPER METHODS
