@@ -51,7 +51,7 @@
             </dt>
             @if (Model.Workouts.Count < 1)
             {
-                <dd>No workouts for this workout plan.</dd>
+                <dd>No workouts listed for this workout plan</dd>
             }
             else
             {
@@ -62,7 +62,7 @@
                     </dd>
                 }
             }
-            
+
 
         </dl>
         <button>@Html.ActionLink("Go to Workouts", "Index", "Workout", routeValues: null, htmlAttributes: new { })</button>
