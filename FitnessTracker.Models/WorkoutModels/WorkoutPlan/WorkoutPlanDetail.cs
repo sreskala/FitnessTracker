@@ -10,6 +10,7 @@ namespace FitnessTracker.Models.WorkoutModels.WorkoutPlan
 {
     public class WorkoutPlanDetail
     {
+        [Display(Name = "Workout Plan #")]
         public int WorkoutPlanId { get; set; }
         public string Title { get; set; }
 

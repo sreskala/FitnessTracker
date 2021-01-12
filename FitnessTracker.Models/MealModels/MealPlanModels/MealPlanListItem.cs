@@ -10,6 +10,7 @@ namespace FitnessTracker.Models.MealModels.MealPlan
 {
     public class MealPlanListItem
     {
+        [Display(Name = "Meal Plan #")]
         public int MealPlanId { get; set; }
         public string Title { get; set; }
         //public int Week { get; set; }

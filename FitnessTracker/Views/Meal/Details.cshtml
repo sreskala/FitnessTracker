@@ -8,51 +8,60 @@
     <link href="@Url.Content("~/Styles/DetailsView.css")" rel="stylesheet" type="text/css"/>
 }
 
+<div class="padding-top-view">
+    <h2 class="page-header title-header">Details</h2>
 
-<h2>Details</h2>
+    <div>
+        <h4>#@Model.MealId Meal Detail</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MealId)
+            </dt>
 
-<div>
-    <h4 class="meal-detail-head">Meal Detail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MealId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MealId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MealPlanId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MealPlanId)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.FoodItems)
-        </dt>
-        @foreach (var food in Model.FoodItems)
-        {
             <dd>
-                @Html.DisplayFor(model => food.FoodItem.Name)
+                @Html.DisplayFor(model => model.MealId)
             </dd>
-        }
 
-    </dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
 
-    <button>@Html.ActionLink("Go to Food Items","Index", "FoodItem", routeValues: null, htmlAttributes: new { })</button>
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MealPlanId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MealPlanId)
+            </dd>
+            <dt style="margin:0;">
+                @Html.DisplayNameFor(model => model.FoodItems)
+            </dt>
+            @if (Model.FoodItems.Count < 1)
+            {
+                <dd>No Food Items listed for this meal</dd>
+            }
+            else
+            {
+                foreach (var food in Model.FoodItems)
+                {
+                    <dd>
+                        @Html.DisplayFor(model => food.FoodItem.Name)
+                    </dd>
+                }
+            }
+
+
+        </dl>
+
+        <button>@Html.ActionLink("Go to Food Items", "Index", "FoodItem", routeValues: null, htmlAttributes: new { @class = "button-link-index" })</button>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MealId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MealId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

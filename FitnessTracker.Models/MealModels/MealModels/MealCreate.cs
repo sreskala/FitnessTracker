@@ -16,6 +16,7 @@ namespace FitnessTracker.Models.MealModels.Meal
         public string Title { get; set; }
 
         [Required]
+        [Display(Name = "Tied to Meal Plan #")]
         public int MealPlanId { get; set; }
     }
 }

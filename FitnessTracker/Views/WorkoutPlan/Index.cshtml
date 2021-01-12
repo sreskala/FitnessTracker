@@ -1,55 +1,70 @@
 ﻿@model IEnumerable<FitnessTracker.Models.WorkoutModels.WorkoutPlan.WorkoutPlanListItem>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Workout Plans";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-@if (TempData.ContainsKey("SaveResult"))
-{
-    <div class="alert alert-success fade in" role="alert">
-        @ViewBag.SaveResult
-        <button type="button" class="close" data-dismiss="alert">
-            <span>&times;</span>
-        </button>
-    </div>
+@section Styles {
+    <link href="@Url.Content("~/Styles/DetailsView.css")" rel="stylesheet" type="text/css" />
 }
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.WorkoutPlanId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateCreatedUtc)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
+<div class="padding-top-view">
+    <h2 class="title-header page-header">@ViewBag.Title</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    @if (TempData.ContainsKey("SaveResult"))
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.WorkoutPlanId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateCreatedUtc)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.WorkoutPlanId}) |
-                @Html.ActionLink("Details", "Details", new { id = item.WorkoutPlanId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.WorkoutPlanId })
-            </td>
-        </tr>
+        <div class="alert alert-success fade in" role="alert">
+            @ViewBag.SaveResult
+            <button type="button" class="close" data-dismiss="alert">
+                <span>&times;</span>
+            </button>
+        </div>
     }
 
-</table>
+    @if (Model.Count() < 1)
+    {
+        <h3>Looks like your Workout Plans are empty! Hit create new to start adding some.</h3>
+    }
+    else
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.WorkoutPlanId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateCreatedUtc)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WorkoutPlanId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateCreatedUtc)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.WorkoutPlanId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.WorkoutPlanId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.WorkoutPlanId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+
+</div>

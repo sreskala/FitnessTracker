@@ -4,50 +4,63 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+@section Styles {
+    <link href="@Url.Content("~/Styles/DetailsView.css")" rel="stylesheet" type="text/css" />
+}
 
-<div>
-    <h4>WorkoutDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.WorkoutId)
-        </dt>
+<div class="padding-top-view">
+    <h2 class="page-header title-header">@ViewBag.Title</h2>
 
-        <dd>
-            @Html.DisplayFor(model => model.WorkoutId)
-        </dd>
+    <div>
+        <h4>Workout #@Model.WorkoutId</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.WorkoutId)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.WorkoutPlanId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.WorkoutPlanId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Exercises)
-        </dt>
-        @foreach (var exercise in Model.Exercises)
-        {
             <dd>
-                @Html.DisplayFor(model => exercise.Exercise.Name)
+                @Html.DisplayFor(model => model.WorkoutId)
             </dd>
-        }
 
-    </dl>
-    <button>@Html.ActionLink("Go to Exercises", "Index", "Exercise", routeValues: null, htmlAttributes: new { })</button>
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.WorkoutPlanId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.WorkoutPlanId)
+            </dd>
+
+            <dt style="margin: 0;">
+                @Html.DisplayNameFor(model => model.Exercises)
+            </dt>
+            @if (Model.Exercises.Count < 1)
+            {
+                <dd>No exercises for this workout</dd>
+            }
+            else
+            {
+                foreach (var exercise in Model.Exercises)
+                {
+                    <dd>
+                        @Html.DisplayFor(model => exercise.Exercise.Name)
+                    </dd>
+                }
+            }
+
+        </dl>
+        <button>@Html.ActionLink("Go to Exercises", "Index", "Exercise", routeValues: null, htmlAttributes: new { })</button>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.WorkoutId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.WorkoutId}) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

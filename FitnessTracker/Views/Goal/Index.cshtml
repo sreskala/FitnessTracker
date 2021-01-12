@@ -1,51 +1,67 @@
 ﻿@model IEnumerable<FitnessTracker.Models.GoalModels.GoalListItem>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Goals";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.GoalId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateCreatedUtc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Completed)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.GoalId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateCreatedUtc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Completed)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.GoalId}) |
-            @Html.ActionLink("Details", "Details", new { id = item.GoalId}) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.GoalId })
-        </td>
-    </tr>
+@section Styles {
+    <link href="@Url.Content("~/Styles/DetailsView.css")" rel="stylesheet" type="text/css" />
 }
 
-</table>
+<div class="padding-top-view">
+    <h2 class="title-header page-header">@ViewBag.Title</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+
+    @if (Model.Count() < 1)
+    {
+        <h3>Looks like your goals are empty. Click 'Create New' to start adding some!</h3>
+    }
+    else
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.GoalId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateCreatedUtc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Completed)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GoalId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateCreatedUtc)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Completed)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.GoalId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.GoalId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.GoalId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+
+</div>

@@ -1,40 +1,57 @@
 ﻿@model IEnumerable<FitnessTracker.Models.MealModels.Meal.MealListItem>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Meals";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MealId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MealId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.MealId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.MealId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.MealId })
-        </td>
-    </tr>
+@section Styles {
+    <link href="@Url.Content("~/Styles/DetailsView.css")" rel="stylesheet" type="text/css" />
 }
-    
-</table>
-<input type="button" value="Add Meals to MealPlan" onclick="location.href='@Url.Action("AddMealsToMealPlan","Meal")'" />
+
+<div class="padding-top-view">
+    <h2 class="page-header title-header">@ViewBag.Title</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+
+    @if (Model.Count() < 1)
+    {
+        <h3>Looks like your Meals are empty! Hit create new to start adding some.</h3>
+    }
+    else
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.MealId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MealId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.MealId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.MealId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.MealId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <input type="button" value="Add Meals to MealPlan" onclick="location.href='@Url.Action("AddMealsToMealPlan","Meal")'" />
+    }
+
+
+</div>

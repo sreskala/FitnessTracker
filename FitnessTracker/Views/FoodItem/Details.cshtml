@@ -4,55 +4,62 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+@section Styles {
+    <link href="@Url.Content("~/Styles/DetailsView.css")" rel="stylesheet" type="text/css" />
+}
 
-<div>
-    <h4>FoodItemDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FoodItemId)
-        </dt>
+<div class="padding-top-view">
 
-        <dd>
-            @Html.DisplayFor(model => model.FoodItemId)
-        </dd>
+    <h2 class="page-header title-header">@ViewBag.Title</h2>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <div>
+        <h4>Food Item #@Model.FoodItemId Detail</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.FoodItemId)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.FoodItemId)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Quantity)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Quantity)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Calories)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Calories)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Quantity)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MealId)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Calories)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MealId)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Calories)
+            </dd>
 
-    </dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.MealId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MealId)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.FoodItemId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.FoodItemId}) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

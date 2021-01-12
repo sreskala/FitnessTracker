@@ -60,3 +60,7 @@ td, th {
 .plan-link-container {
     text-align: center;
 }
+
+.plan-link-container > button * {
+    text-decoration: none;
+}
