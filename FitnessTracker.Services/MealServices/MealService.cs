@@ -70,7 +70,7 @@ namespace FitnessTracker.Services.MealServices
                 var entity =
                     ctx
                     .Meals
-                    .Single(m => m.MealId == id && m.OwnerId == _userId);
+                    .SingleOrDefault(m => m.MealId == id && m.OwnerId == _userId);
 
                 return new MealDetail()
                 {
@@ -106,7 +106,7 @@ namespace FitnessTracker.Services.MealServices
                 var entity =
                     ctx
                     .Meals
-                    .Single(m => m.MealId == model.MealId && m.OwnerId == _userId);
+                    .SingleOrDefault(m => m.MealId == model.MealId && m.OwnerId == _userId);
 
                 entity.Title = model.Title;
 
@@ -122,12 +122,12 @@ namespace FitnessTracker.Services.MealServices
                 var entity =
                     ctx
                     .Meals
-                    .Single(m => m.MealId == id && m.OwnerId == _userId);
+                    .SingleOrDefault(m => m.MealId == id && m.OwnerId == _userId);
 
                 var related =
                     ctx
                     .MealForMealPlans
-                    .Single(m => m.MealId == id && m.Meal.OwnerId == _userId);
+                    .SingleOrDefault(m => m.MealId == id && m.Meal.OwnerId == _userId);
 
                 ctx.MealForMealPlans.Remove(related);
                 ctx.Meals.Remove(entity);

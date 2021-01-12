@@ -112,12 +112,17 @@ namespace FitnessTracker.Controllers
         public ActionResult DeleteWorkoutPlan(int id)
         {
             var service = CreateWorkoutPlanService();
+            var model = service.GetWorkoutById(id);
 
-            service.DeleteWorkoutPlan(id);
+            if (service.DeleteWorkoutPlan(id))
+            {
+                TempData["SaveResult"] = "Workout Plan successfully deleted.";
 
-            TempData["SaveResult"] = "Workout Plan successfully deleted.";
+                return RedirectToAction("Index");
+            }
 
-            return RedirectToAction("Index");
+            ModelState.AddModelError("", "Unable to delete workout plan.");
+            return View(model);
         }
 
         //helper methods

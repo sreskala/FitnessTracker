@@ -115,12 +115,17 @@ namespace FitnessTracker.Controllers
         public ActionResult DeleteFoodItem(int id)
         {
             var service = CreateFoodItemService();
+            var model = service.GetFoodItemById(id);
 
-            service.DeleteFoodItem(id);
+            if (service.DeleteFoodItem(id))
+            {
+                TempData["SaveResult"] = "Deleted food item.";
 
-            TempData["SaveResult"] = "Deleted food item.";
+                return RedirectToAction("Index");
+            }
 
-            return RedirectToAction("Index");
+            ModelState.AddModelError("", "Unable to delete food item.");
+            return View(model);
         }
 
         //Helper methods

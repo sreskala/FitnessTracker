@@ -52,7 +52,7 @@
     font-weight: bold;
 }
 
-.vertical-align p {
+.info-text {
     font-size: 20px;
     line-height: 2.5rem;
 }
@@ -105,3 +105,27 @@
 #loginLink:hover {
     color: #9d9d9d;
 }
+
+@media screen and (max-width: 885px){
+    .vertical-align {
+        flex-flow: column;
+        margin-bottom: 40px;
+    }
+
+    .vertical-align:last-of-type {
+        flex-flow: column-reverse;
+        margin-bottom: 40px;
+    }
+
+    .info-text {
+        font-size: 15px;
+        line-height: 2rem;
+        width: 75%;
+        margin: 10px auto;
+    }
+
+    .svg-container svg{
+        width: 300px;
+    }
+}
+

@@ -68,7 +68,7 @@ namespace FitnessTracker.Services.MealServices
                 var entity =
                     ctx
                     .FoodItems
-                    .Single(f => f.FoodItemId == id && f.OwnerId == _userId);
+                    .SingleOrDefault(f => f.FoodItemId == id && f.OwnerId == _userId);
 
                 return new FoodItemDetail()
                 {
@@ -89,7 +89,7 @@ namespace FitnessTracker.Services.MealServices
                 var entity =
                     ctx
                     .FoodItems
-                    .Single(f => f.FoodItemId == model.FoodItemId && f.OwnerId == _userId);
+                    .SingleOrDefault(f => f.FoodItemId == model.FoodItemId && f.OwnerId == _userId);
 
                 entity.Name = model.Name;
                 entity.Quantity = model.Quantity;
@@ -107,12 +107,12 @@ namespace FitnessTracker.Services.MealServices
                 var entity =
                     ctx
                     .FoodItems
-                    .Single(f => f.FoodItemId == id && f.OwnerId == _userId);
+                    .SingleOrDefault(f => f.FoodItemId == id && f.OwnerId == _userId);
 
                 var related =
                     ctx
                     .FoodItemForMeals
-                    .Single(fi => fi.FoodItemId == id && fi.FoodItem.OwnerId == _userId);
+                    .SingleOrDefault(fi => fi.FoodItemId == id && fi.FoodItem.OwnerId == _userId);
 
                 ctx.FoodItemForMeals.Remove(related);
                 ctx.FoodItems.Remove(entity);

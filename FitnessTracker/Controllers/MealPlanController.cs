@@ -117,12 +117,17 @@ namespace FitnessTracker.Controllers
         public ActionResult DeleteMealPlan(int id)
         {
             var service = CreateMealPlanService();
+            var model = service.GetMealPlanById(id);
 
-            service.DeleteMealPlan(id);
+            if (service.DeleteMealPlan(id))
+            {
+                TempData["SaveResult"] = "Your Meal Plan was Deleted.";
 
-            TempData["SaveResult"] = "Your Meal Plan was Deleted.";
+                return RedirectToAction("Index");
+            }
 
-            return RedirectToAction("Index");
+            ModelState.AddModelError("", "Unable to delete Meal Plan.");
+            return View(model);
         }
 
         //HELPER METHODS

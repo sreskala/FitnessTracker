@@ -120,11 +120,16 @@ namespace FitnessTracker.Controllers
         public ActionResult DeleteGoal(int id)
         {
             var service = CreateGoalService();
-            service.DeleteGoal(id);
+            var model = service.GetGoalById(id);
 
-            TempData["SaveResult"] = "Goal deleted.";
+            if (service.DeleteGoal(id))
+            {
+                TempData["SaveResult"] = "Goal deleted.";
+                return RedirectToAction("Index");
+            }
 
-            return RedirectToAction("Index");
+            ModelState.AddModelError("", "Unable to delete goal.");
+            return View(model);
         }
 
         //HELPER METHODS

@@ -50,7 +50,7 @@ namespace FitnessTracker.Services.GoalServices
                 var entity =
                     ctx
                     .Goals
-                    .Single(g => g.GoalId == id && g.OwnerId == _userId);
+                    .SingleOrDefault(g => g.GoalId == id && g.OwnerId == _userId);
 
                 return new GoalDetail()
                 {
@@ -92,7 +92,12 @@ namespace FitnessTracker.Services.GoalServices
                 var entity =
                     ctx
                     .Goals
-                    .Single(g => g.GoalId == model.GoalId && g.OwnerId == _userId);
+                    .SingleOrDefault(g => g.GoalId == model.GoalId && g.OwnerId == _userId);
+
+                if(entity == null)
+                {
+                    return false;
+                }
 
                 entity.Title = model.Title;
                 entity.Description = model.Description;
@@ -111,7 +116,12 @@ namespace FitnessTracker.Services.GoalServices
                 var entity =
                     ctx
                     .Goals
-                    .Single(g => g.GoalId == id && g.OwnerId == _userId);
+                    .SingleOrDefault(g => g.GoalId == id && g.OwnerId == _userId);
+
+                if(entity == null)
+                {
+                    return false;
+                }
 
                 ctx.Goals.Remove(entity);
                 return ctx.SaveChanges() == 1;
