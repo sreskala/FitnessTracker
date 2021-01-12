@@ -59,8 +59,34 @@ td, th {
 
 .plan-link-container {
     text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.plan-link-container > button {
+    margin: 5px 20px;
+    padding: 5px;
 }
 
 .plan-link-container > button * {
     text-decoration: none;
+}
+
+@media screen and (max-width: 900px) {
+    .dashboard-container {
+        flex-flow:column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 680px){
+    .plan-link-container {
+        flex-flow: column;
+    }
+
+    table {
+        font-size: 1.5rem;
+        width: 90%;
+        margin: 10px auto;
+    }
 }
