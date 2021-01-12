@@ -7,6 +7,11 @@
     margin-top: 60px;
 }
 
+.app-name {
+    color: #990606;
+    font-weight: bold;
+}
+
 .about-container > h2 {
     text-align: center;
 }
@@ -69,4 +74,46 @@
 
 .extra-features > img {
     transform: rotate(30deg);
+}
+
+@media screen and (max-width: 995px) {
+    .extra-features > img {
+        transform: rotate(0deg);
+        height: 300px;
+    }
+
+    .coming-soon-text {
+        text-align: initial;
+        line-height: 3rem;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .about-container > h2 {
+        font-size: 20px;
+    }
+
+    .main-about > p {
+        font-size: 12px;
+        line-height: 2rem;
+        width: 80%;
+    }
+
+    .features-icons {
+        flex-flow: column;
+    }
+
+    .icon-segment {
+        margin-bottom: 50px;
+    }
+
+    .extra-features {
+        flex-flow:column;
+    }
+
+    .extra-features > img {
+        margin-bottom: 50px;
+        height: 200px;
+    }
 }

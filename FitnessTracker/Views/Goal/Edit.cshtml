@@ -40,7 +40,7 @@
 
             <div class="form-group">
                 @Html.LabelFor(model => model.Completed, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+                <div class="col-md-10" style="padding-left: 58px;">
                     <div class="checkbox">
                         @Html.EditorFor(model => model.Completed)
                         @Html.ValidationMessageFor(model => model.Completed, "", new { @class = "text-danger" })

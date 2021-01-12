@@ -49,12 +49,20 @@
             <dt style="margin:0;">
                 @Html.DisplayNameFor(model => model.Workouts)
             </dt>
-            @foreach (var workout in Model.Workouts)
+            @if (Model.Workouts.Count < 1)
             {
-                <dd>
-                    @Html.DisplayFor(model => workout.Workout.Title)
-                </dd>
+                <dd>No workouts for this workout plan.</dd>
             }
+            else
+            {
+                foreach (var workout in Model.Workouts)
+                {
+                    <dd>
+                        @Html.DisplayFor(model => workout.Workout.Title)
+                    </dd>
+                }
+            }
+            
 
         </dl>
         <button>@Html.ActionLink("Go to Workouts", "Index", "Workout", routeValues: null, htmlAttributes: new { })</button>

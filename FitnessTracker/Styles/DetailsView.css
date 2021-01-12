@@ -35,3 +35,14 @@
 .button-link-index *{
   text-decoration: none;
 }
+
+@media screen and (max-width: 650px) {
+    .table {
+        width: 80%;
+    }
+
+    .table td {
+        padding: 1rem;
+        font-size: 12px;
+    }
+}
