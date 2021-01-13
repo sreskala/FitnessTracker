@@ -46,20 +46,31 @@ namespace FitnessTracker.Services.WorkoutServices
         //Create new workout
         public bool CreateWorkout(WorkoutCreate model)
         {
-            var entity =
-                new Workout()
-                {
-                    Title = model.Title,
-                    OwnerId = _userId,
-                    WorkoutPlanId = model.WorkoutPlanId
-                };
 
+            //Error Handling
             using(var ctx = new ApplicationDbContext())
             {
-                ctx.Workouts.Add(entity);
+                var workoutPlanIds = ctx.WorkoutPlans.Where(w => w.OwnerId == _userId).Select(w => w.WorkoutPlanId);
 
-                return ctx.SaveChanges() == 1;
+                if(workoutPlanIds.Contains(model.WorkoutPlanId))
+                {
+                    var entity =
+                    new Workout()
+                    {
+                        Title = model.Title,
+                        OwnerId = _userId,
+                        WorkoutPlanId = model.WorkoutPlanId
+                    };
+
+                    ctx.Workouts.Add(entity);
+
+                    return ctx.SaveChanges() == 1;
+                } else
+                {
+                    return false;
+                }
             }
+
         }
 
         //Get workout by Id

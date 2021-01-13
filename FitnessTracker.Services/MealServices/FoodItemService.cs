@@ -43,21 +43,34 @@ namespace FitnessTracker.Services.MealServices
         //Create a food item
         public bool CreateFoodItem(FoodItemCreate model)
         {
-            var entity =
-                new FoodItem()
-                {
-                    Name = model.Name,
-                    Quantity = model.Quantity,
-                    Calories = model.Calories,
-                    OwnerId = _userId,
-                    MealId = model.MealId
-                };
-
-            using (var ctx = new ApplicationDbContext())
+            //Error Handling
+            using(var ctx = new ApplicationDbContext())
             {
-                ctx.FoodItems.Add(entity);
-                return ctx.SaveChanges() == 1;
+                var mealIds = ctx.Meals.Where(m => m.OwnerId == _userId).Select(m => m.MealId);
+
+                if (mealIds.Contains(model.MealId))
+                {
+                    var entity =
+                    new FoodItem()
+                    {
+                        Name = model.Name,
+                        Quantity = model.Quantity,
+                        Calories = model.Calories,
+                        OwnerId = _userId,
+                        MealId = model.MealId
+                    };
+
+                    ctx.FoodItems.Add(entity);
+                    return ctx.SaveChanges() == 1;
+                } 
+                else {
+
+                    return false;
+                }
+
+                
             }
+
         }
 
         //Get food item by id

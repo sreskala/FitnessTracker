@@ -127,9 +127,21 @@ namespace FitnessTracker.Services.MealServices
                     .MealPlans
                     .SingleOrDefault(m => m.MealPlanId == id && m.OwnerId == _userId);
 
+                var meals =
+                    ctx
+                    .Meals
+                    .Where(m => m.MealPlanId == id && m.OwnerId == _userId);
+
+                var related =
+                    ctx
+                    .MealForMealPlans
+                    .SingleOrDefault(m => m.MealPlanId == id);
+
+                ctx.MealForMealPlans.Remove(related);
+                ctx.Meals.RemoveRange(meals);
                 ctx.MealPlans.Remove(entity);
 
-                return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() > 0;
             }
         }
     }
