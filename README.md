@@ -81,4 +81,46 @@ The second table was a simple meal plan table which would allow a user to add me
 | DateCreatedUtc | DateTimeOffset | Date Created | 1/1/2021 4:00PM |
 | DateModifiedUtc | DateTimeOffset? | Date Modified | 1/12/2021 3:50PM |
 | Length | Integer? | Length in Weeks | 12 |
-| Guid | OwnerId | **Not Displayed** | ----- |
+| OwnerId | Guid | **Not Displayed** | ----- |
+
+
+## Meal Table
+A meal plan can consist of one or several meals under it. Each meal has the following properties:
+
+| Property Name | Type | Display Name | Example |
+|---------------|------|--------------|---------|
+| MealId | Integer | Meal # | 12 |
+| Title | String | Title | Breakfast |
+| OwnerId | Guid | **Not Displayed** | ---- |
+| MealPlanId (Foreign Key) | Integer | Tied to Meal Plan # | 7 |
+| MealPlan | Virtual MealPlan | **Not Displayed** | _used for relational tables_ |
+
+The foreign key of MealPlanId helps identify which MealPlan this specific meal is tied to, so that the relational table can link them up.
+
+
+## Food Item Table
+A meal can then be made up of several food items to make a full meal. Each food item has the following properties:
+
+| Property Name | Type | Display Name | Example |
+|---------------|------|--------------|---------|
+| FoodItemId | Integer | Food Item # | 3 |
+| Name | String | Name | Eggs Overeasy |
+| Quantity | Integer | Quantity | 2 |
+| Calories | Integer | Calories | 350 |
+| OwnerId | Guid | **Not Displayed** | ---- |
+| MealId(Foreign Key) | Integer | Tied to Meal # | 12 |
+| Meal | Virtual Meal | **Not Displayed** | _used for relational tables_ |
+
+The foreign key of MealId helps identify which Meal this specific food item is tied to so that the relational table can link them up.
+
+
+## Workout Plan Table
+This table allows a user to add Workout plans. Its properties are:
+
+| Property Name | Type | Display Name | Example |
+|---------------|------|--------------|---------|
+| WorkoutPlanId | Integer | Workout Plan # | 1 |
+| Title | String | Title | Shredding Workout Plan |
+| DateCreatedUtc | DateTimeOffset | Date Created | 1/1/2021 4:00PM |
+| DateModifiedUtc | DateTimeOffset? | Date Modified | 1/12/2021 3:50PM |
+| OwnerId | Guid | **Not Displayed** | ----- |
