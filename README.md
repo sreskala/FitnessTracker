@@ -200,4 +200,8 @@ The application is fairly simple to use and allows limitless customization which
 
 ## Coming Soon
 Some features that I want to implement in the next version of the app include:
-+ 
++ Mobile-friendly version
++ Fetch meal/workout data from 3rd party APIs
++ Email reminders for goal-tracking
++ Extra tracking such as water-intake, sleep, etc...
++ And many more features!
