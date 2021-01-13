@@ -143,7 +143,7 @@ namespace FitnessTracker.Services.MealServices
                 var relatedFood =
                     ctx
                     .FoodItemForMeals
-                    .SingleOrDefault(f => f.MealId == id);
+                    .Where(f => f.MealId == id);
 
                 var foodItems =
                     ctx
@@ -151,7 +151,7 @@ namespace FitnessTracker.Services.MealServices
                     .Where(f => f.MealId == id && f.OwnerId == _userId);
 
                 ctx.MealForMealPlans.Remove(relatedMeal);
-                ctx.FoodItemForMeals.Remove(relatedFood);
+                ctx.FoodItemForMeals.RemoveRange(relatedFood);
                 ctx.FoodItems.RemoveRange(foodItems);
                 ctx.Meals.Remove(entity);
 

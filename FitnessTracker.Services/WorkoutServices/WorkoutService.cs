@@ -136,12 +136,24 @@ namespace FitnessTracker.Services.WorkoutServices
                     .Workouts
                     .SingleOrDefault(w => w.WorkoutId == id && w.OwnerId == _userId);
 
-                var related =
+                var relatedWorkoutPlan =
                     ctx
                     .WorkoutForWorkoutPlans
                     .SingleOrDefault(w => w.WorkoutId == id && w.Workout.OwnerId == _userId);
 
-                ctx.WorkoutForWorkoutPlans.Remove(related);
+                var relatedExercise =
+                    ctx
+                    .ExerciseForWorkouts
+                    .Where(e => e.WorkoutId == id);
+
+                var exercises =
+                    ctx
+                    .Exercises
+                    .Where(e => e.WorkoutId == id && e.OwnerId == _userId);
+
+                ctx.ExerciseForWorkouts.RemoveRange(relatedExercise);
+                ctx.WorkoutForWorkoutPlans.Remove(relatedWorkoutPlan);
+                ctx.Exercises.RemoveRange(exercises);
                 ctx.Workouts.Remove(entity);
 
                 return ctx.SaveChanges() > 0;
