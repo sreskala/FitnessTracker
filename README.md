@@ -124,3 +124,55 @@ This table allows a user to add Workout plans. Its properties are:
 | DateCreatedUtc | DateTimeOffset | Date Created | 1/1/2021 4:00PM |
 | DateModifiedUtc | DateTimeOffset? | Date Modified | 1/12/2021 3:50PM |
 | OwnerId | Guid | **Not Displayed** | ----- |
+
+
+## Workout Table
+Each workout plan is composed of workouts. Each workout has the following properties:
+
+| Property Name | Type | Display Name | Example |
+|---------------|------|--------------|---------|
+| WorkoutId | Integer | Workout # | 5 |
+| Title | String | Title | Morning Routine |
+| OwnerId | Guid | **Not Displayed** | ---- |
+| WorkoutPlanId (Foreign Key) | Integer | Tied to Workout Plan # | 1 |
+| WorkoutPlan | Virtual WorkoutPlan | **Not Displayed** | _used for relational tables_ |
+
+
+## Exercise Table
+Each workout is then made up of several exercises. Each exercise has the following properties: 
+
+| Property Name | Type | Display Name | Example |
+|---------------|------|--------------|---------|
+| ExerciseId | Integer | Exercise # | 5 |
+| Name | String | Name | Preacher Curl |
+| Description | String | Descripition | _long exercise description goes here..._ |
+| Repetition | Integer | Reps | 10 |
+| Sets | Integer | Sets | 5 |
+| Length | Integer | Length in Minutes | 15 |
+| Type | WorkoutType (enum) | Type of Workout | Weights |
+| Muscle | MuscleGroup (enum) | Muscle | Biceps |
+| OwnerId | Guid | **Not Displayed** | ---- |
+| WorkoutId (Foreign Key) | Integer | Tied to Workout # | 5 |
+| Workout | Virtual Workout | **Not Displayed** | _used for relational tables_ |
+
+
+## Goal Table
+This table consists of goals a user has and contains the following properties: 
+
+| Property Name | Type | Display Name | Example |
+|---------------|------|--------------|---------|
+| GoalId | Integer | Goal # | 2 |
+| Title | String | Title | Workout 5 Times a Week |
+| Description | String | Description | _Lengthy goal description_ |
+| DateCreatedUtc | DateTimeOffset | Date Created | 1/1/2021 4:00PM |
+| DateModifiedUtc | DateTimeOffset? | Date Modified | 1/12/2021 3:50PM |
+| Completed | Boolean | Completed | true |
+| OwnerId | Guid | **Not Displayed** | ---- |
+
+
+There are a couple of relational tables that tie all the data together but they just consist of objects from what they're tying together in order to used them within the application context.
+
+
+-------------
+
+## How To Use
