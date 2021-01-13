@@ -135,9 +135,9 @@ namespace FitnessTracker.Services.MealServices
                 var related =
                     ctx
                     .MealForMealPlans
-                    .SingleOrDefault(m => m.MealPlanId == id);
+                    .Where(m => m.MealPlanId == id);
 
-                ctx.MealForMealPlans.Remove(related);
+                ctx.MealForMealPlans.RemoveRange(related);
                 ctx.Meals.RemoveRange(meals);
                 ctx.MealPlans.Remove(entity);
 
