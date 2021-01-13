@@ -1,2 +1,6 @@
-# FitnessTracker
-App to track workout plan and meal plan
+# Health Warrior - A Fitness Tracking Application
+
+add image here
+
+## What is Health Warrior
+Description goes here...
