@@ -84,7 +84,7 @@ The second table was a simple meal plan table which would allow a user to add me
 | OwnerId | Guid | **Not Displayed** | ----- |
 
 
-## Meal Table
+### Meal Table
 A meal plan can consist of one or several meals under it. Each meal has the following properties:
 
 | Property Name | Type | Display Name | Example |
@@ -98,7 +98,7 @@ A meal plan can consist of one or several meals under it. Each meal has the foll
 The foreign key of MealPlanId helps identify which MealPlan this specific meal is tied to, so that the relational table can link them up.
 
 
-## Food Item Table
+### Food Item Table
 A meal can then be made up of several food items to make a full meal. Each food item has the following properties:
 
 | Property Name | Type | Display Name | Example |
@@ -114,7 +114,7 @@ A meal can then be made up of several food items to make a full meal. Each food 
 The foreign key of MealId helps identify which Meal this specific food item is tied to so that the relational table can link them up.
 
 
-## Workout Plan Table
+### Workout Plan Table
 This table allows a user to add Workout plans. Its properties are:
 
 | Property Name | Type | Display Name | Example |
@@ -126,7 +126,7 @@ This table allows a user to add Workout plans. Its properties are:
 | OwnerId | Guid | **Not Displayed** | ----- |
 
 
-## Workout Table
+### Workout Table
 Each workout plan is composed of workouts. Each workout has the following properties:
 
 | Property Name | Type | Display Name | Example |
@@ -138,7 +138,7 @@ Each workout plan is composed of workouts. Each workout has the following proper
 | WorkoutPlan | Virtual WorkoutPlan | **Not Displayed** | _used for relational tables_ |
 
 
-## Exercise Table
+### Exercise Table
 Each workout is then made up of several exercises. Each exercise has the following properties: 
 
 | Property Name | Type | Display Name | Example |
@@ -156,7 +156,7 @@ Each workout is then made up of several exercises. Each exercise has the followi
 | Workout | Virtual Workout | **Not Displayed** | _used for relational tables_ |
 
 
-## Goal Table
+### Goal Table
 This table consists of goals a user has and contains the following properties: 
 
 | Property Name | Type | Display Name | Example |
@@ -176,3 +176,28 @@ There are a couple of relational tables that tie all the data together but they 
 -------------
 
 ## How To Use
+
+The application is fairly simple to use and allows limitless customization which allows the user to create as many meals for as many mealplans as they'd like. I will demonstrate the process with making a Meal Plan -- this is the same process to making a Workout Plan as well.
+1. Create a Meal Plan
+   + Add a Title and a length, that's all you will need
+2. Create a Meal
+   + Add a meal title/name
+   + Make sure to add the meal plan # for the meal plan you would like to link this to
+3. Repeat step number 2 for as many meals as you'd like to add to your meal plan
+   + For example you could have three - a **breakfast** meal, a **lunch** meal, and a **dinner** meal
+4. Once you have your meals created, click the button "Add meals to meal plans". This will automatically add all your meals at once to each selected meal plan.
+5. Create a Food Item
+   + Add a food item name, quantity, calories, and add the exact meal # you would like to link it to
+6. Repeat step 5 as many times as you'd like
+   + For instance for the breakfast meal you could have **eggs, bacon,** and **toast**
+7. Once you're ready click the button "Add food items to meals" and it will auto populate all your meals.
+8. If you check your meals you should see all your food items listed under each specified meal.
+9. Repeat this process for other meal plans or workout plans
+
+
+-----------
+
+
+## Coming Soon
+Some features that I want to implement in the next version of the app include:
++ 
