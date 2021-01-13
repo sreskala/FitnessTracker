@@ -125,8 +125,20 @@ namespace FitnessTracker.Services.WorkoutServices
                     .WorkoutPlans
                     .SingleOrDefault(w => w.WorkoutPlanId == id && w.OwnerId == _userId);
 
+                var relatedWorkout =
+                    ctx
+                    .WorkoutForWorkoutPlans
+                    .SingleOrDefault(w => w.WorkoutPlanId == id);
+
+                var workouts =
+                    ctx
+                    .Workouts
+                    .Where(w => w.WorkoutPlanId == id && w.OwnerId == _userId);
+
+                ctx.WorkoutForWorkoutPlans.Remove(relatedWorkout);
+                ctx.Workouts.RemoveRange(workouts);
                 ctx.WorkoutPlans.Remove(entity);
-                return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() > 0;
             }
         }
     }
